@@ -1,0 +1,31 @@
+PODS:
+  - azure_ad_authentication (0.0.1):
+    - FlutterMacOS
+    - MSAL (~> 1.0.3)
+  - FlutterMacOS (1.0.0)
+  - MSAL (1.0.7):
+    - MSAL/app-lib (= 1.0.7)
+  - MSAL/app-lib (1.0.7)
+
+DEPENDENCIES:
+  - azure_ad_authentication (from `Flutter/ephemeral/.symlinks/plugins/azure_ad_authentication/macos`)
+  - FlutterMacOS (from `Flutter/ephemeral`)
+
+SPEC REPOS:
+  trunk:
+    - MSAL
+
+EXTERNAL SOURCES:
+  azure_ad_authentication:
+    :path: Flutter/ephemeral/.symlinks/plugins/azure_ad_authentication/macos
+  FlutterMacOS:
+    :path: Flutter/ephemeral
+
+SPEC CHECKSUMS:
+  azure_ad_authentication: 65b3be426d73ec744827908790251bc911eb0121
+  FlutterMacOS: 57701585bf7de1b3fc2bb61f6378d73bbdea8424
+  MSAL: e4c1cbcf59e04073b427ce9fbfc0346b54abb62e
+
+PODFILE CHECKSUM: 6eac6b3292e5142cfc23bdeb71848a40ec51c14c
+
+COCOAPODS: 1.11.2

@@ -1,7 +1,8 @@
 name: azure_ad_authentication
 description: Login Azure AD.
 version: 1.0.0
-homepage: Fabio Conceicao
+homepage: https://github.com/fabio21/azure_ad_authentication
+
 
 environment:
   sdk: ">=2.12.0 <3.0.0"

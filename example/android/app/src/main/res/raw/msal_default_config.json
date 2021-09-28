@@ -8,8 +8,8 @@
       }
     }
   ],
-  "client_id": "my_id",
-  "redirect_uri" : "msauth://com.fsconceicao.azure_ad_authentication_example/U5rbvBLdFUbEazWhQfDgt6oRa24%3D",
+  "client_id": "xxxxxxxxxx",
+  "redirect_uri" : "msauth://com.exemple/U5rbvBLdFUbEazWhQfDgt6oRa24%3D",
   "authorization_user_agent": "DEFAULT",
   "minimum_required_broker_protocol_version": "3.0",
   "multiple_clouds_supported": false,

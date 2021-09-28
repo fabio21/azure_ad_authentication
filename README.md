@@ -21,9 +21,21 @@ with keystore key
 
 For Andriod
 
-* YOUR_BASE64_ENCODED_PACKAGE_SIGNATURE
+* Integrating with a broker
+Generate a redirect URI for a broker
+You must register a redirect URI that is compatible with the broker. The redirect URI for the broker should include your app's package name and the Base64-encoded representation of your app's signature.
+
+The format of the redirect URI is:
+>msauth://yourpackagename/base64urlencodedsignature
+
+You can use keytool to generate a Base64-encoded signature hash using your app's signing keys, and then use the Azure portal to generate your redirect URI using that hash.
+- Linux and macOS:
 ```
-$ keytool -exportcert -alias androiddebugkey -keystore "C:\Documents and  Settings\Administrator.android\debug.keystore" | "C:\OpenSSL\bin\openssl" sha1 -binary |"C:\OpenSSL\bin\openssl" base64
+keytool -exportcert -alias androiddebugkey -keystore ~/.android/debug.keystore | openssl sha1 -binary | openssl base64
+```
+- Windows
+```
+keytool -exportcert -alias androiddebugkey -keystore %HOMEPATH%\.android\debug.keystore | openssl sha1 -binary | openssl base64
 ```
 * AndroidManifest.xml
 ```
@@ -62,7 +74,40 @@ $ keytool -exportcert -alias androiddebugkey -keystore "C:\Documents and  Settin
     }
  ```
 
+* Path folder res -> raw ->  msal_default_config.json
+> [MSAL (Microsoft Authentication Library)](https://docs.microsoft.com/pt-br/azure/active-directory/develop/msal-configuration)
 
+```
+{
+  "authorities": [
+    {
+      "type": "AAD",
+      "audience": {
+        "type": "AzureADMyOrg",
+        "tenant_id": "organizations"
+      }
+    }
+  ],
+  "client_id": "xxxxxxxxxxxxxxx",
+  "redirect_uri" : "msauth://com.exemple/U5rbvBLdFUbEazWhQfDgt6oRa24%3D",
+  "authorization_user_agent": "DEFAULT",
+  "minimum_required_broker_protocol_version": "3.0",
+  "multiple_clouds_supported": false,
+  "broker_redirect_uri_registered": true,
+  "environment": "Production",
+  "http": {
+    "connect_timeout": 10000,
+    "read_timeout": 30000
+  },
+  "logging": {
+    "pii_enabled": false,
+    "log_level": "WARNING",
+    "logcat_enabled": true
+  },
+  "account_mode": "MULTIPLE",
+
+}
+```
 
 # iOs configs
 * Version msal 1.0.7

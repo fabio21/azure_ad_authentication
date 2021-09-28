@@ -14,12 +14,31 @@
       <excludeFolder url="file://$MODULE_DIR$/example/ios/.symlinks/plugins/azure_ad_authentication/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/example/ios/.symlinks/plugins/azure_ad_authentication/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/example/ios/.symlinks/plugins/azure_ad_authentication/build" />
+      <excludeFolder url="file://$MODULE_DIR$/example/ios/.symlinks/plugins/azure_ad_authentication/example/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/example/ios/.symlinks/plugins/azure_ad_authentication/example/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/example/ios/.symlinks/plugins/azure_ad_authentication/example/build" />
+      <excludeFolder url="file://$MODULE_DIR$/example/ios/.symlinks/plugins/azure_ad_authentication/example/ios/.symlinks/plugins/azure_ad_authentication/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/example/ios/.symlinks/plugins/azure_ad_authentication/example/ios/.symlinks/plugins/azure_ad_authentication/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/example/ios/.symlinks/plugins/azure_ad_authentication/example/ios/.symlinks/plugins/azure_ad_authentication/build" />
+      <excludeFolder url="file://$MODULE_DIR$/example/ios/.symlinks/plugins/azure_ad_authentication/example/macos/Flutter/ephemeral/.symlinks/plugins/azure_ad_authentication/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/example/ios/.symlinks/plugins/azure_ad_authentication/example/macos/Flutter/ephemeral/.symlinks/plugins/azure_ad_authentication/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/example/ios/.symlinks/plugins/azure_ad_authentication/example/macos/Flutter/ephemeral/.symlinks/plugins/azure_ad_authentication/build" />
       <excludeFolder url="file://$MODULE_DIR$/example/macos/Flutter/ephemeral/.symlinks/plugins/azure_ad_authentication/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/example/macos/Flutter/ephemeral/.symlinks/plugins/azure_ad_authentication/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/example/macos/Flutter/ephemeral/.symlinks/plugins/azure_ad_authentication/build" />
+      <excludeFolder url="file://$MODULE_DIR$/example/macos/Flutter/ephemeral/.symlinks/plugins/azure_ad_authentication/example/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/example/macos/Flutter/ephemeral/.symlinks/plugins/azure_ad_authentication/example/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/example/macos/Flutter/ephemeral/.symlinks/plugins/azure_ad_authentication/example/build" />
+      <excludeFolder url="file://$MODULE_DIR$/example/macos/Flutter/ephemeral/.symlinks/plugins/azure_ad_authentication/example/ios/.symlinks/plugins/azure_ad_authentication/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/example/macos/Flutter/ephemeral/.symlinks/plugins/azure_ad_authentication/example/ios/.symlinks/plugins/azure_ad_authentication/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/example/macos/Flutter/ephemeral/.symlinks/plugins/azure_ad_authentication/example/ios/.symlinks/plugins/azure_ad_authentication/build" />
+      <excludeFolder url="file://$MODULE_DIR$/example/macos/Flutter/ephemeral/.symlinks/plugins/azure_ad_authentication/example/macos/Flutter/ephemeral/.symlinks/plugins/azure_ad_authentication/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/example/macos/Flutter/ephemeral/.symlinks/plugins/azure_ad_authentication/example/macos/Flutter/ephemeral/.symlinks/plugins/azure_ad_authentication/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/example/macos/Flutter/ephemeral/.symlinks/plugins/azure_ad_authentication/example/macos/Flutter/ephemeral/.symlinks/plugins/azure_ad_authentication/build" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Dart SDK" level="project" />
     <orderEntry type="library" name="Flutter Plugins" level="project" />
+    <orderEntry type="library" name="Dart Packages" level="project" />
   </component>
 </module>

@@ -1,6 +1,6 @@
 name: azure_ad_authentication
 description: Login Azure AD.
-version: 1.0.0
+version: 1.0.0+1
 homepage: https://github.com/fabio21/azure_ad_authentication
 
 

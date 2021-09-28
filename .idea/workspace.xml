@@ -5,14 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d962cc96-278e-44b0-b112-69cb6025ef5f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/src/main/kotlin/com/fsconceicao/azure_ad_authentication/AzureAdAuthenticationPlugin.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/kotlin/com/fsconceicao/azure_ad_authentication/AzureAdAuthenticationPlugin.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/example/android/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/android/app/src/debug/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/example/android/app/src/debug/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/example/android/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/android/app/src/main/res/raw/msal_default_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/example/android/app/src/main/res/raw/msal_default_config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/CHANGELOG.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/azure_ad_authentication.iml" beforeDir="false" afterPath="$PROJECT_DIR$/azure_ad_authentication.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,22 +73,22 @@
       <screen x="0" y="25" width="2560" height="982" />
     </state>
     <state x="541" y="176" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.25.2560.982@0.25.2560.982" timestamp="1632741407379" />
-    <state width="2021" height="266" key="GridCell.Tab.0.bottom" timestamp="1632829686578">
+    <state width="2021" height="266" key="GridCell.Tab.0.bottom" timestamp="1632852278716">
       <screen x="0" y="25" width="2560" height="982" />
     </state>
-    <state width="2021" height="266" key="GridCell.Tab.0.bottom/0.25.2560.982@0.25.2560.982" timestamp="1632829686578" />
-    <state width="2021" height="266" key="GridCell.Tab.0.center" timestamp="1632829686578">
+    <state width="2021" height="266" key="GridCell.Tab.0.bottom/0.25.2560.982@0.25.2560.982" timestamp="1632852278716" />
+    <state width="2021" height="266" key="GridCell.Tab.0.center" timestamp="1632852278716">
       <screen x="0" y="25" width="2560" height="982" />
     </state>
-    <state width="2021" height="266" key="GridCell.Tab.0.center/0.25.2560.982@0.25.2560.982" timestamp="1632829686578" />
-    <state width="2021" height="266" key="GridCell.Tab.0.left" timestamp="1632829686578">
+    <state width="2021" height="266" key="GridCell.Tab.0.center/0.25.2560.982@0.25.2560.982" timestamp="1632852278716" />
+    <state width="2021" height="266" key="GridCell.Tab.0.left" timestamp="1632852278716">
       <screen x="0" y="25" width="2560" height="982" />
     </state>
-    <state width="2021" height="266" key="GridCell.Tab.0.left/0.25.2560.982@0.25.2560.982" timestamp="1632829686578" />
-    <state width="2021" height="266" key="GridCell.Tab.0.right" timestamp="1632829686578">
+    <state width="2021" height="266" key="GridCell.Tab.0.left/0.25.2560.982@0.25.2560.982" timestamp="1632852278716" />
+    <state width="2021" height="266" key="GridCell.Tab.0.right" timestamp="1632852278716">
       <screen x="0" y="25" width="2560" height="982" />
     </state>
-    <state width="2021" height="266" key="GridCell.Tab.0.right/0.25.2560.982@0.25.2560.982" timestamp="1632829686578" />
+    <state width="2021" height="266" key="GridCell.Tab.0.right/0.25.2560.982@0.25.2560.982" timestamp="1632852278716" />
     <state width="1935" height="262" key="GridCell.Tab.1.bottom" timestamp="1632663030492">
       <screen x="0" y="25" width="2560" height="982" />
     </state>

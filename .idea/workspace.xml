@@ -5,11 +5,79 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d962cc96-278e-44b0-b112-69cb6025ef5f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/doc/api/__404error.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/api/azure_ad_authentication/AzureAdAuthentication-class.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/api/azure_ad_authentication/AzureAdAuthentication/acquireToken.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/api/azure_ad_authentication/AzureAdAuthentication/acquireTokenSilent.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/api/azure_ad_authentication/AzureAdAuthentication/createPublicClientApplication.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/api/azure_ad_authentication/AzureAdAuthentication/logout.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/api/azure_ad_authentication/azure_ad_authentication-library.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/api/categories.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/api/exeption/MsalChangedClientIdException-class.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/api/exeption/MsalChangedClientIdException/MsalChangedClientIdException.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/api/exeption/MsalException-class.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/api/exeption/MsalException/MsalException.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/api/exeption/MsalException/errorMessage.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/api/exeption/MsalInitializationException-class.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/api/exeption/MsalInitializationException/MsalInitializationException.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/api/exeption/MsalInvalidConfigurationException-class.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/api/exeption/MsalInvalidConfigurationException/MsalInvalidConfigurationException.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/api/exeption/MsalInvalidScopeException-class.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/api/exeption/MsalInvalidScopeException/MsalInvalidScopeException.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/api/exeption/MsalNoAccountException-class.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/api/exeption/MsalNoAccountException/MsalNoAccountException.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/api/exeption/MsalUninitializedException-class.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/api/exeption/MsalUninitializedException/MsalUninitializedException.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/api/exeption/MsalUserCancelledException-class.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/api/exeption/MsalUserCancelledException/MsalUserCancelledException.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/api/exeption/exeption-library.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/api/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/api/index.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/api/init_ad_azure/init_ad_azure-library.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/api/model_request/Request-class.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/api/model_request/Request/Request.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/api/model_request/Request/post.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/api/model_request/model_request-library.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/api/model_user_ad/UserAdModel-class.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/api/model_user_ad/UserAdModel/UserAdModel.fromJson.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/api/model_user_ad/UserAdModel/UserAdModel.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/api/model_user_ad/UserAdModel/accessToken.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/api/model_user_ad/UserAdModel/businessPhones.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/api/model_user_ad/UserAdModel/displayName.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/api/model_user_ad/UserAdModel/expiresOn.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/api/model_user_ad/UserAdModel/givenName.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/api/model_user_ad/UserAdModel/id.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/api/model_user_ad/UserAdModel/jobTitle.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/api/model_user_ad/UserAdModel/mail.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/api/model_user_ad/UserAdModel/mobilePhone.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/api/model_user_ad/UserAdModel/odataContext.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/api/model_user_ad/UserAdModel/officeLocation.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/api/model_user_ad/UserAdModel/preferredLanguage.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/api/model_user_ad/UserAdModel/surname.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/api/model_user_ad/UserAdModel/toJson.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/api/model_user_ad/UserAdModel/userPrincipalName.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/api/model_user_ad/model_user_ad-library.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/api/static-assets/favicon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/api/static-assets/github.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/api/static-assets/highlight.pack.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/api/static-assets/play_button.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/api/static-assets/readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/api/static-assets/script.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/api/static-assets/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/CHANGELOG.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/azure_ad_authentication.iml" beforeDir="false" afterPath="$PROJECT_DIR$/azure_ad_authentication.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/ios/build/Pods.build/Release-iphonesimulator/Flutter.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/build/Pods.build/Release-iphonesimulator/Flutter.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/ios/build/Pods.build/Release-iphonesimulator/MSAL.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/build/Pods.build/Release-iphonesimulator/MSAL.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/ios/build/Pods.build/Release-iphonesimulator/Pods-Runner.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/build/Pods.build/Release-iphonesimulator/Pods-Runner.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/ios/build/Pods.build/Release-iphonesimulator/azure_ad_authentication.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/build/Pods.build/Release-iphonesimulator/azure_ad_authentication.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/example/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/example/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/azure_ad_authentication.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/azure_ad_authentication.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/init.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/init.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -17,7 +85,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[SerialNumber@0072087986]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[VirtualDevicePath@/Users/fabioconceicao/.android/avd/Pixel_5_Edited_API_R.avd]" />
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -29,12 +97,15 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1yYCA6bYblAoMCVgLBUMq9h9etd" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_MARK_IGNORED_FILES_AS_EXCLUDED" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
@@ -45,6 +116,7 @@
     <property name="flutter.view.tool.window.visible" value="true" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
@@ -68,27 +140,34 @@
     </task>
     <servers />
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="541" y="176" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1632741407379">
       <screen x="0" y="25" width="2560" height="982" />
     </state>
     <state x="541" y="176" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.25.2560.982@0.25.2560.982" timestamp="1632741407379" />
-    <state width="2021" height="266" key="GridCell.Tab.0.bottom" timestamp="1632852278716">
+    <state x="1482" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1633269538092">
       <screen x="0" y="25" width="2560" height="982" />
     </state>
-    <state width="2021" height="266" key="GridCell.Tab.0.bottom/0.25.2560.982@0.25.2560.982" timestamp="1632852278716" />
-    <state width="2021" height="266" key="GridCell.Tab.0.center" timestamp="1632852278716">
+    <state x="1482" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.25.2560.982@0.25.2560.982" timestamp="1633269538092" />
+    <state width="2021" height="266" key="GridCell.Tab.0.bottom" timestamp="1632852858891">
       <screen x="0" y="25" width="2560" height="982" />
     </state>
-    <state width="2021" height="266" key="GridCell.Tab.0.center/0.25.2560.982@0.25.2560.982" timestamp="1632852278716" />
-    <state width="2021" height="266" key="GridCell.Tab.0.left" timestamp="1632852278716">
+    <state width="2021" height="266" key="GridCell.Tab.0.bottom/0.25.2560.982@0.25.2560.982" timestamp="1632852858891" />
+    <state width="2021" height="266" key="GridCell.Tab.0.center" timestamp="1632852858890">
       <screen x="0" y="25" width="2560" height="982" />
     </state>
-    <state width="2021" height="266" key="GridCell.Tab.0.left/0.25.2560.982@0.25.2560.982" timestamp="1632852278716" />
-    <state width="2021" height="266" key="GridCell.Tab.0.right" timestamp="1632852278716">
+    <state width="2021" height="266" key="GridCell.Tab.0.center/0.25.2560.982@0.25.2560.982" timestamp="1632852858890" />
+    <state width="2021" height="266" key="GridCell.Tab.0.left" timestamp="1632852858890">
       <screen x="0" y="25" width="2560" height="982" />
     </state>
-    <state width="2021" height="266" key="GridCell.Tab.0.right/0.25.2560.982@0.25.2560.982" timestamp="1632852278716" />
+    <state width="2021" height="266" key="GridCell.Tab.0.left/0.25.2560.982@0.25.2560.982" timestamp="1632852858890" />
+    <state width="2021" height="266" key="GridCell.Tab.0.right" timestamp="1632852858891">
+      <screen x="0" y="25" width="2560" height="982" />
+    </state>
+    <state width="2021" height="266" key="GridCell.Tab.0.right/0.25.2560.982@0.25.2560.982" timestamp="1632852858891" />
     <state width="1935" height="262" key="GridCell.Tab.1.bottom" timestamp="1632663030492">
       <screen x="0" y="25" width="2560" height="982" />
     </state>
@@ -105,6 +184,18 @@
       <screen x="0" y="25" width="2560" height="982" />
     </state>
     <state width="1935" height="262" key="GridCell.Tab.1.right/0.25.2560.982@0.25.2560.982" timestamp="1632663030492" />
+    <state x="927" y="151" key="SettingsEditor" timestamp="1633270184688">
+      <screen x="0" y="25" width="2560" height="982" />
+    </state>
+    <state x="927" y="151" key="SettingsEditor/0.25.2560.982@0.25.2560.982" timestamp="1633270184688" />
+    <state x="697" y="125" width="1863" height="781" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1633269729896">
+      <screen x="0" y="25" width="2560" height="982" />
+    </state>
+    <state x="697" y="125" width="1863" height="781" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.25.2560.982@0.25.2560.982" timestamp="1633269729896" />
+    <state x="1013" y="241" width="670" height="676" key="search.everywhere.popup" timestamp="1632852643602">
+      <screen x="0" y="25" width="2560" height="982" />
+    </state>
+    <state x="1013" y="241" width="670" height="676" key="search.everywhere.popup/0.25.2560.982@0.25.2560.982" timestamp="1632852643602" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

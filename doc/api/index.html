@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="generator" content="made with love by dartdoc 3.1.0">
+  <meta name="description" content="azure_ad_authentication API docs, for the Dart programming language.">
+  <title>azure_ad_authentication - Dart API docs</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+
+  
+</head>
+
+
+<body data-base-href=""
+      data-using-base-href="false">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="https://github.com/fabio21/azure_ad_authentication">azure_ad_authentication package</a></li>
+  </ol>
+  <div class="self-name">azure_ad_authentication</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+
+  <div id="dartdoc-main-content" class="main-content">
+      
+<section class="desc markdown">
+  <h1 id="azure_ad_authentication">azure_ad_authentication</h1>
+<p>Login Azure Ad package Msal.</p>
+<h2 id="register-your-app">Register your App</h2>
+<p>This app comes pre-configured for testing. If you would like to register your own app, please follow the steps below.</p>
+<p>To Register an app:</p>
+<p>Sign in to the <a href="https://github.com/Azure-Samples/ms-identity-macOS-swift-objc#:~:text=in%20to%20the-,Azure%20portal,-using%20either%20a">Azure portal</a> using either a work or school account.
+In the left-hand navigation pane, select the Azure Active Directory blade, and then select App registrations.
+Click on the New registration button at the top left of the page.</p>
+<h1 id="android-configs">Android configs</h1>
+<ul>
+<li>Version msal 2.0.2</li>
+</ul>
+<ul>
+<li>
+<p><a href="https://github.com/AzureAD/microsoft-authentication-library-for-android">https://github.com/AzureAD/microsoft-authentication-library-for-android</a></p>
+</li>
+<li>
+<p>Note don't forget to add your Keystore folder to your App folder on android
+with keystore key</p>
+</li>
+</ul>
+<p>For Andriod</p>
+<ul>
+<li>Integrating with a broker
+Generate a redirect URI for a broker
+You must register a redirect URI that is compatible with the broker. The redirect URI for the broker should include your app's package name and the Base64-encoded representation of your app's signature.</li>
+</ul>
+<p>The format of the redirect URI is:</p>
+<blockquote>
+<p>msauth://yourpackagename/base64urlencodedsignature</p>
+</blockquote>
+<p>You can use keytool to generate a Base64-encoded signature hash using your app's signing keys, and then use the Azure portal to generate your redirect URI using that hash.</p>
+<ul>
+<li>Linux and macOS:</li>
+</ul>
+<pre class="language-dart"><code>keytool -exportcert -alias androiddebugkey -keystore ~/.android/debug.keystore | openssl sha1 -binary | openssl base64
+</code></pre>
+<ul>
+<li>Windows</li>
+</ul>
+<pre class="language-dart"><code>keytool -exportcert -alias androiddebugkey -keystore %HOMEPATH%\.android\debug.keystore | openssl sha1 -binary | openssl base64
+</code></pre>
+<ul>
+<li>AndroidManifest.xml</li>
+</ul>
+<pre class="language-dart"><code>&lt;activity
+        android:name="com.microsoft.identity.client.BrowserTabActivity"&gt;
+        &lt;intent-filter&gt;
+            &lt;action android:name="android.intent.action.VIEW" /&gt;
+            &lt;category android:name="android.intent.category.DEFAULT" /&gt;
+            &lt;category android:name="android.intent.category.BROWSABLE" /&gt;
+            &lt;data
+                android:scheme="msauth"
+                android:host="&lt;YOUR_PACKAGE_NAME&gt;"
+                android:path="/&lt;YOUR_BASE64_ENCODED_PACKAGE_SIGNATURE&gt;" /&gt;
+        &lt;/intent-filter&gt;
+    &lt;/activity&gt;
+</code></pre>
+<ul>
+<li>build.gradle</li>
+</ul>
+<pre class="language-dart"><code>  signingConfigs {
+        debug {
+            storeFile file("Keystore/debug.keystore")
+            storePassword 'android'
+            keyAlias 'androiddebugkey'
+            keyPassword 'android'
+        }
+    }
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+        }
+        debug {
+            signingConfig signingConfigs.debug
+        }
+    }
+</code></pre>
+<ul>
+<li>Path folder res -&gt; raw -&gt;  msal_default_config.json</li>
+</ul>
+<blockquote>
+<p><a href="https://docs.microsoft.com/pt-br/azure/active-directory/develop/msal-configuration">MSAL (Microsoft Authentication Library)</a></p>
+</blockquote>
+<pre class="language-dart"><code>{
+  "authorities": [
+    {
+      "type": "AAD",
+      "audience": {
+        "type": "AzureADMyOrg",
+        "tenant_id": "organizations"
+      }
+    }
+  ],
+  "client_id": "xxxxxxxxxxxxxxx",
+  "redirect_uri" : "msauth://com.exemple/U5rbvBLdFUbEazWhQfDgt6oRa24%3D",
+  "authorization_user_agent": "DEFAULT",
+  "minimum_required_broker_protocol_version": "3.0",
+  "multiple_clouds_supported": false,
+  "broker_redirect_uri_registered": true,
+  "environment": "Production",
+  "http": {
+    "connect_timeout": 10000,
+    "read_timeout": 30000
+  },
+  "logging": {
+    "pii_enabled": false,
+    "log_level": "WARNING",
+    "logcat_enabled": true
+  },
+  "account_mode": "MULTIPLE",
+
+}
+</code></pre>
+<h1 id="ios-configs">iOs configs</h1>
+<ul>
+<li>Version msal 1.0.7</li>
+</ul>
+<ul>
+<li><a href="https://github.com/AzureAD/microsoft-authentication-library-for-objc">https://github.com/AzureAD/microsoft-authentication-library-for-objc</a></li>
+</ul>
+<blockquote>
+<p>Configuring MSAL
+Adding MSAL to your project
+Register your app in the Azure portal
+Make sure you register a redirect URI for your application. It should be in the following format:</p>
+</blockquote>
+<p><code>msauth.$(PRODUCT_BUNDLE_IDENTIFIER)://auth</code></p>
+<blockquote>
+<p>Add a new keychain group to your project Capabilities. Keychain group should be com.microsoft.adalcache on iOS and com.microsoft.identity.universalstorage on macOS.</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/AzureAD/microsoft-authentication-library-for-objc/dev/Images/keychain_example.png" alt="alt text"></p>
+<blockquote>
+<p>See more information about keychain groups and Silent SSO for MSAL.</p>
+</blockquote>
+<blockquote>
+<p>iOS only steps:
+Add your application's redirect URI scheme to your Info.plist file</p>
+</blockquote>
+<pre class="language-dart"><code>&lt;key&gt;CFBundleURLTypes&lt;/key&gt;
+&lt;array&gt;
+    &lt;dict&gt;
+        &lt;key&gt;CFBundleURLSchemes&lt;/key&gt;
+        &lt;array&gt;
+            &lt;string&gt;msauth.$(PRODUCT_BUNDLE_IDENTIFIER)&lt;/string&gt;
+        &lt;/array&gt;
+    &lt;/dict&gt;
+&lt;/array&gt;
+</code></pre>
+<blockquote>
+<p>Add LSApplicationQueriesSchemes to allow making call to Microsoft Authenticator if installed.
+Note that "msauthv3" scheme is needed when compiling your app with Xcode 11 and later.</p>
+</blockquote>
+<pre class="language-dart"><code>&lt;key&gt;LSApplicationQueriesSchemes&lt;/key&gt;
+&lt;array&gt;
+	&lt;string&gt;msauthv2&lt;/string&gt;
+	&lt;string&gt;msauthv3&lt;/string&gt;
+&lt;/array&gt;
+</code></pre>
+<blockquote>
+<p>See more info about configuring redirect uri for MSAL</p>
+</blockquote>
+<h1 id="macos-configs">MacOs configs</h1>
+<ul>
+<li>Version msal 1.0.7</li>
+</ul>
+<ul>
+<li>
+<p><a href="https://github.com/Azure-Samples/ms-identity-macOS-swift-objc">https://github.com/Azure-Samples/ms-identity-macOS-swift-objc</a></p>
+</li>
+<li>
+<p>Step 1: Configure your application Info.plist</p>
+</li>
+</ul>
+<blockquote>
+<p>Add URI scheme in the Info.plist. Redirect URI scheme follows the format msauth.<code>app_bundle_id</code>. Make sure to substitute <code>app_bundle_id</code> with the Bundle Identifier for your application.</p>
+</blockquote>
+<pre class="language-dart"><code>&lt;key&gt;CFBundleURLTypes&lt;/key&gt;
+&lt;array&gt;
+  &lt;dict&gt;
+    &lt;key&gt;CFBundleURLSchemes&lt;/key&gt;
+    &lt;array&gt;
+      &lt;string&gt;msauth.[app_bundle_id]&lt;/string&gt;
+    &lt;/array&gt;
+  &lt;/dict&gt;
+&lt;/array&gt;
+</code></pre>
+<ul>
+<li>Step 2: Configure Xcode project settings
+Add a new keychain group to your project Signing &amp; Capabilities. The keychain group should be com.microsoft.identity.universalstorage on macOS.</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/Azure-Samples/ms-identity-macOS-swift-objc/master/images/iosintro-keychainShare.png" alt="alt text"></p>
+<p>Xcode UI displaying how the the keychain group should be set up</p>
+</section>
+
+
+      <section class="summary">
+          <h2>Libraries</h2>
+        <dl>
+          <dt id="azure_ad_authentication">
+  <span class="name"><a href="azure_ad_authentication/azure_ad_authentication-library.html">azure_ad_authentication</a></span> 
+
+</dt>
+<dd> 
+</dd>
+
+          <dt id="exeption">
+  <span class="name"><a href="exeption/exeption-library.html">exeption</a></span> 
+
+</dt>
+<dd> 
+</dd>
+
+          <dt id="init">
+  <span class="name"><a href="init/init-library.html">init</a></span> 
+
+</dt>
+<dd> 
+</dd>
+
+          <dt id="request">
+  <span class="name"><a href="model_request/model_request-library.html">request</a></span> 
+
+</dt>
+<dd> 
+</dd>
+
+          <dt id="user_ad">
+  <span class="name"><a href="model_user_ad/model_user_ad-library.html">user_ad</a></span> 
+
+</dt>
+<dd> 
+</dd>
+
+        </dl>
+      </section>
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+  <li><a href="https://github.com/fabio21/azure_ad_authentication">azure_ad_authentication package</a></li>
+</ol>
+
+
+    <h5 class="hidden-xs"><span class="package-name">azure_ad_authentication</span> <span class="package-kind">package</span></h5>
+    <ol>
+      <li class="section-title">Libraries</li>
+      <li><a href="azure_ad_authentication/azure_ad_authentication-library.html">azure_ad_authentication</a></li>
+      <li><a href="exeption/exeption-library.html">exeption</a></li>
+      <li><a href="init/init-library.html">init</a></li>
+      <li><a href="model_request/model_request-library.html">request</a></li>
+      <li><a href="model_user_ad/model_user_ad-library.html">user_ad</a></li>
+</ol>
+
+  </div>
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div>
+
+</main>
+
+<footer>
+  <span class="no-break">
+    azure_ad_authentication
+      1.0.0+1
+  </span>
+
+  
+</footer>
+
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/script.js?v1"></script>
+
+
+
+</body>
+
+</html>
+

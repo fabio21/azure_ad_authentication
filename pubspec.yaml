@@ -3,7 +3,7 @@ description: The Microsoft Authentication Library (MSAL) enables developers to a
   from the Microsoft identity platform in order to authenticate users and access secured web APIs.
   It can be used to provide secure access to Microsoft Graph, other Microsoft APIs,
   third-party web APIs, or your own web API..
-version: 1.0.0+2
+version: 1.0.1
 homepage: https://github.com/fabio21/azure_ad_authentication
 
 environment:

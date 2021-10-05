@@ -5,7 +5,6 @@ import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.embedding.engine.plugins.activity.ActivityAware
 import io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding
-import io.flutter.plugin.common.PluginRegistry
 
 
 class AzureAdAuthenticationPlugin : FlutterPlugin, ActivityAware {
@@ -58,10 +57,6 @@ class AzureAdAuthenticationPlugin : FlutterPlugin, ActivityAware {
         if (msalCallHandler == null) {
             Log.wtf(TAG, "urlLauncher was never set.");
             return;
-        }
-
-        msal.let {
-           it?.setActivity(null);
         }
     }
 }

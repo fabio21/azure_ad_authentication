@@ -21,7 +21,7 @@ class Msal(context: Context, activity: FlutterActivity?) {
     lateinit var adAuthentication: IMultipleAccountPublicClientApplication
     lateinit var accountList: List<IAccount>
 
-    fun setActivity(activity: FlutterActivity?) {
+    fun setActivity(activity: FlutterActivity) {
         this.activity = activity;
     }
 
@@ -31,7 +31,6 @@ class Msal(context: Context, activity: FlutterActivity?) {
 
         return object : IMultipleAccountApplicationCreatedListener {
             override fun onCreated(application: IMultipleAccountPublicClientApplication) {
-                Log.v("INT-SUCCESS", "getApplicationCreatedListener $application")
                 adAuthentication = application
                 result.success(true)
             }
@@ -49,7 +48,7 @@ class Msal(context: Context, activity: FlutterActivity?) {
     internal fun getAuthCallback(result: MethodChannel.Result): AuthenticationCallback {
         return object : AuthenticationCallback {
             override fun onSuccess(authenticationResult: IAuthenticationResult) {
-                Log.d("GET-CALLBACK-SUCCESS", "getAuthCallback ${authenticationResult.account}")
+                Log.d("GET-CALLBACK-SUCCESS", "getAuthCallback ")
                 Handler(Looper.getMainLooper()).post {
                     result.success("{\"accessToken\":\"${authenticationResult.accessToken}\",\"expiresOn\":\"${authenticationResult.expiresOn}\"}")
                 }

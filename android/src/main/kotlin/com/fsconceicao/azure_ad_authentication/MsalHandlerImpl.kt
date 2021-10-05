@@ -51,7 +51,7 @@ class MsalHandlerImpl(private val msal: Msal) : MethodChannel.MethodCallHandler 
                 initialize(clientId, result)
             }
             "loadAccounts" -> Thread(Runnable { msal.loadAccounts(result) }).start()
-            "acquireToken" -> Thread(Runnable { acquireToken(scopes, result) }).start()
+            "acquireToken" -> Thread(Runnable { acquireToken(scopes, result)}).start()
             "acquireTokenSilent" -> Thread(Runnable { acquireTokenSilent(scopes, result) }).start()
             "logout" -> Thread(Runnable { logout(result) }).start()
             else -> result.notImplemented()
@@ -109,7 +109,7 @@ class MsalHandlerImpl(private val msal: Msal) : MethodChannel.MethodCallHandler 
                 result.error(
                     "NO_CLIENT",
                     "Client must be initialized before attempting to acquire a token.",
-                    null
+                    ""
                 )
             }
         }
@@ -135,7 +135,7 @@ class MsalHandlerImpl(private val msal: Msal) : MethodChannel.MethodCallHandler 
         }
         val selectedAccount: IAccount = msal.accountList.first();
         //acquire the token and return the result
-        val sc = scopes.map { s -> s.toLowerCase() }.toTypedArray()
+        val sc = scopes.map { s -> s.toLowerCase(Locale.ROOT) }.toTypedArray()
 
         msal.adAuthentication.acquireTokenSilentAsync(
             sc,
@@ -147,13 +147,13 @@ class MsalHandlerImpl(private val msal: Msal) : MethodChannel.MethodCallHandler 
 
     private fun acquireToken(scopes: Array<String>?, result: MethodChannel.Result) {
         if (!msal.isClientInitialized()) {
-            Handler(Looper.getMainLooper()).post {
+           // Handler(Looper.getMainLooper()).post {
                 result.error(
                     "NO_CLIENT",
                     "Client must be initialized before attempting to acquire a token.",
                     null
                 )
-            }
+           // }
         }
 
         if (scopes == null) {
@@ -167,9 +167,14 @@ class MsalHandlerImpl(private val msal: Msal) : MethodChannel.MethodCallHandler 
 
 
         //acquire the token
-        msal.activity?.let { msal.adAuthentication.acquireToken(it, scopes, msal.getAuthCallback(result)) }
 
-
+        msal.activity.let {
+            it?.let { it1 ->
+                msal.adAuthentication.acquireToken(
+                    it1.activity, scopes, msal.getAuthCallback(result)
+                )
+            }
+        }
     }
 
     private fun initialize(clientId: String?, result: MethodChannel.Result) {
@@ -195,12 +200,10 @@ class MsalHandlerImpl(private val msal: Msal) : MethodChannel.MethodCallHandler 
         }
         if (!msal.isClientInitialized()) {
             // if authority is set, create client using it, otherwise use default
-            msal.applicationContext.let {
-                PublicClientApplication.createMultipleAccountPublicClientApplication(
-                    it,
-                    R.raw.msal_default_config, msal.getApplicationCreatedListener(result)
-                )
-            }
+            PublicClientApplication.createMultipleAccountPublicClientApplication(
+                msal.applicationContext,
+                R.raw.msal_default_config, msal.getApplicationCreatedListener(result)
+            )
         }
     }
 

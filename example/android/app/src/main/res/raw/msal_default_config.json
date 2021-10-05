@@ -1,7 +1,7 @@
 {
-  "client_id" : "1516f813-e189-4587-8158-ffb338650aa7",
+  "client_id" : "xxxxxxxx",
   "authorization_user_agent" : "DEFAULT",
-  "redirect_uri" : "msauth://com.unilever.julia.mobile.uat/U5rbvBLdFUbEazWhQfDgt6oRa24%3D",
+  "redirect_uri" : "msauth://xxxxxx/U5rbvBLdFUbEazWhQfDgt6oRa24%3D",
   "account_mode" : "MULTIPLE",
   "minimum_required_broker_protocol_version": "3.0",
   "multiple_clouds_supported": false,

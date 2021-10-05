@@ -51,7 +51,7 @@
                 <category android:name="android.intent.category.BROWSABLE" />
 
                 <data
-                    android:host="com.unilever.julia.mobile.uat"
+                    android:host="xxxxxxxx"
                     android:path="/U5rbvBLdFUbEazWhQfDgt6oRa24="
                     android:scheme="msauth" />
             </intent-filter>

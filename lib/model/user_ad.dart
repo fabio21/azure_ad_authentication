@@ -31,6 +31,23 @@ class UserAdModel {
     this.preferredLanguage,
   });
 
+  /// model user ad return model inf
+  /// ```
+  /// @odata.context
+  /// id
+  /// displayName
+  /// givenName
+  /// surname
+  /// userPrincipalName
+  /// mail
+  /// businessPhones
+  /// jobTitle
+  /// mobilePhone
+  /// officeLocation
+  /// preferredLanguage
+  /// accessToken -> token user
+  /// expiresOn -> date time of expiration
+  /// ```
   factory UserAdModel.fromJson(Map<String, dynamic> json) {
     return UserAdModel(
       odataContext: json['@odata.context'],
@@ -45,7 +62,9 @@ class UserAdModel {
           (json['mail'] != null) ? json['mail'].toString().toLowerCase() : null,
       accessToken: json['accessToken'],
       expiresOn: json["expiresOn"],
-      businessPhones: (json["businessPhones"] != null) ? json["businessPhones"].cast<String>() : null,
+      businessPhones: (json["businessPhones"] != null)
+          ? json["businessPhones"].cast<String>()
+          : null,
       jobTitle: json['jobTitle'],
       mobilePhone: json['mobilePhone'],
       officeLocation: json['officeLocation'],

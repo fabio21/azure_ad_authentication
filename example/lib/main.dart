@@ -1,4 +1,7 @@
-import 'package:azure_ad_authentication/init.dart';
+
+import 'package:azure_ad_authentication/azure_ad_authentication.dart';
+import 'package:azure_ad_authentication/exeption.dart';
+import 'package:azure_ad_authentication/model/user_ad.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:flutter/services.dart';
@@ -15,7 +18,6 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   static const String _authority =
       "https://login.microsoftonline.com/organizations/oauth2/v2.0/authorize";
-
 
   static const String _clientId = "xxxxxxx";
 
@@ -106,7 +108,8 @@ class _MyAppState extends State<MyApp> {
                     child: const Text('AcquireTokenSilently()')),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: ElevatedButton(onPressed: _logout, child: const Text('Logout')),
+                  child: ElevatedButton(
+                      onPressed: _logout, child: const Text('Logout')),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),

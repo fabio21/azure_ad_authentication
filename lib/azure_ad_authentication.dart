@@ -1,10 +1,11 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
-import 'package:azure_ad_authentication/init.dart';
 import 'package:flutter/services.dart';
 
 import 'exeption.dart';
+import 'model/request.dart';
+import 'model/user_ad.dart';
 
 class AzureAdAuthentication {
   static const MethodChannel _channel =
@@ -59,19 +60,22 @@ class AzureAdAuthentication {
 
   /// Acquire a token silently, with no user interaction, for the given [scopes]
   /// return [UserAdModel] contains user information but token and expiration date
-  Future<UserAdModel?> acquireTokenSilent({required List<String> scopes}) async {
+  Future<UserAdModel?> acquireTokenSilent(
+      {required List<String> scopes}) async {
     var res = <String, dynamic>{'scopes': scopes};
     try {
       if (Platform.isAndroid) {
         await _channel.invokeMethod('loadAccounts');
       }
-      final String json = await _channel.invokeMethod('acquireTokenSilent', res);
+      final String json =
+          await _channel.invokeMethod('acquireTokenSilent', res);
       UserAdModel userAdModel = UserAdModel.fromJson(jsonDecode(json));
       return await _getUserModel(userAdModel);
     } on PlatformException catch (e) {
       throw _convertException(e);
     }
   }
+
   /// clear user input data
   Future logout() async {
     try {

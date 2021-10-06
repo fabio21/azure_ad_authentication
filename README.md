@@ -1,6 +1,6 @@
 # azure_ad_authentication
 
-Login Azure Ad package Msal.
+Azure Ad package Msal login for Android, iOS and MacOs, AD refund information user and token and expiration time session
 
 ## Register your App
 This app comes pre-configured for testing. If you would like to register your own app, please follow the steps below.
@@ -12,8 +12,8 @@ Sign in to the [Azure portal](https://github.com/Azure-Samples/ms-identity-macOS
 In the left-hand navigation pane, select the Azure Active Directory blade, and then select App registrations.
 Click on the New registration button at the top left of the page.
 
-# Android configs
-* Version msal 2.0.2
+## Android Configs
+* Version msal 2.+
 - https://github.com/AzureAD/microsoft-authentication-library-for-android
 
 - Note don't forget to add your Keystore folder to your App folder on android
@@ -109,7 +109,7 @@ keytool -exportcert -alias androiddebugkey -keystore %HOMEPATH%\.android\debug.k
 }
 ```
 
-# iOs configs
+## iOs Configs
 * Version msal 1.0.7
 - https://github.com/AzureAD/microsoft-authentication-library-for-objc
 
@@ -156,7 +156,7 @@ Note that "msauthv3" scheme is needed when compiling your app with Xcode 11 and 
 >See more info about configuring redirect uri for MSAL
 
 
-# MacOs configs
+## MacOs Configs
 * Version msal 1.0.7
 - https://github.com/Azure-Samples/ms-identity-macOS-swift-objc
 

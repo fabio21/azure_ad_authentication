@@ -5,6 +5,7 @@ import 'dart:io';
 import 'user_ad.dart';
 
 class Request {
+  ///Get inforamtion for User Ad param: [token] return UserAdModel or null
   static Future<UserAdModel?> post({required String token}) async {
     HttpClient client = HttpClient();
     Uri uri = Uri.parse('https://graph.microsoft.com/v1.0/me/');

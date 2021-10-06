@@ -65,8 +65,7 @@ class AzureAdAuthentication {
       if (Platform.isAndroid) {
         await _channel.invokeMethod('loadAccounts');
       }
-      final String json =
-          await _channel.invokeMethod('acquireTokenSilent', res);
+      final String json = await _channel.invokeMethod('acquireTokenSilent', res);
       UserAdModel userAdModel = UserAdModel.fromJson(jsonDecode(json));
       return await _getUserModel(userAdModel);
     } on PlatformException catch (e) {

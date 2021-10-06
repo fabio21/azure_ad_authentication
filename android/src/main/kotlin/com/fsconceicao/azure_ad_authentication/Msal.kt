@@ -48,7 +48,6 @@ class Msal(context: Context, activity: FlutterActivity?) {
     internal fun getAuthCallback(result: MethodChannel.Result): AuthenticationCallback {
         return object : AuthenticationCallback {
             override fun onSuccess(authenticationResult: IAuthenticationResult) {
-                Log.d("GET-CALLBACK-SUCCESS", "getAuthCallback ")
                 Handler(Looper.getMainLooper()).post {
                     result.success("{\"accessToken\":\"${authenticationResult.accessToken}\",\"expiresOn\":\"${authenticationResult.expiresOn}\"}")
                 }
@@ -78,10 +77,6 @@ class Msal(context: Context, activity: FlutterActivity?) {
     internal fun getAuthSilentCallback(result: MethodChannel.Result): SilentAuthenticationCallback {
         return object : SilentAuthenticationCallback {
             override fun onSuccess(authenticationResult: IAuthenticationResult) {
-                Log.d(
-                    "GET-CALL-SILENT-SUCCESS",
-                    "Successfully authenticated ${authenticationResult.accessToken}"
-                )
                 Handler(Looper.getMainLooper()).post {
                     result.success("{\"accessToken\":\"${authenticationResult.accessToken}\",\"expiresOn\":\"${authenticationResult.expiresOn}\"}")
                 }

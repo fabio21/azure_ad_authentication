@@ -110,7 +110,7 @@ keytool -exportcert -alias androiddebugkey -keystore %HOMEPATH%\.android\debug.k
 ```
 
 ## iOs Configs
-* Version msal 1.0.7
+* Version msal 1.1.22
 - https://github.com/AzureAD/microsoft-authentication-library-for-objc
 
 
@@ -157,7 +157,7 @@ Note that "msauthv3" scheme is needed when compiling your app with Xcode 11 and 
 
 
 ## MacOs Configs
-* Version msal 1.0.7
+* Version msal 1.1.22
 - https://github.com/Azure-Samples/ms-identity-macOS-swift-objc
 
 - Step 1: Configure your application Info.plist

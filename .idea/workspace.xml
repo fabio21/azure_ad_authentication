@@ -1,81 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d962cc96-278e-44b0-b112-69cb6025ef5f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/ios/Runner/Runner.entitlements" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/CHANGELOG.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/api/__404error.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/api/azure_ad_authentication/AzureAdAuthentication-class.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/api/azure_ad_authentication/AzureAdAuthentication/acquireToken.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/api/azure_ad_authentication/AzureAdAuthentication/acquireTokenSilent.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/api/azure_ad_authentication/AzureAdAuthentication/createPublicClientApplication.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/api/azure_ad_authentication/AzureAdAuthentication/logout.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/api/azure_ad_authentication/azure_ad_authentication-library.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/api/categories.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/api/exeption/MsalChangedClientIdException-class.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/api/exeption/MsalChangedClientIdException/MsalChangedClientIdException.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/api/exeption/MsalException-class.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/api/exeption/MsalException/MsalException.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/api/exeption/MsalException/errorMessage.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/api/exeption/MsalInitializationException-class.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/api/exeption/MsalInitializationException/MsalInitializationException.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/api/exeption/MsalInvalidConfigurationException-class.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/api/exeption/MsalInvalidConfigurationException/MsalInvalidConfigurationException.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/api/exeption/MsalInvalidScopeException-class.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/api/exeption/MsalInvalidScopeException/MsalInvalidScopeException.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/api/exeption/MsalNoAccountException-class.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/api/exeption/MsalNoAccountException/MsalNoAccountException.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/api/exeption/MsalUninitializedException-class.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/api/exeption/MsalUninitializedException/MsalUninitializedException.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/api/exeption/MsalUserCancelledException-class.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/api/exeption/MsalUserCancelledException/MsalUserCancelledException.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/api/exeption/exeption-library.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/api/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/api/index.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/api/init/init-library.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/api/init_ad_azure/init_ad_azure-library.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/api/model_request/Request-class.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/api/model_request/Request/Request.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/api/model_request/Request/post.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/api/model_request/model_request-library.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/api/model_user_ad/UserAdModel-class.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/api/model_user_ad/UserAdModel/UserAdModel.fromJson.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/api/model_user_ad/UserAdModel/UserAdModel.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/api/model_user_ad/UserAdModel/accessToken.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/api/model_user_ad/UserAdModel/businessPhones.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/api/model_user_ad/UserAdModel/displayName.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/api/model_user_ad/UserAdModel/expiresOn.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/api/model_user_ad/UserAdModel/givenName.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/api/model_user_ad/UserAdModel/id.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/api/model_user_ad/UserAdModel/jobTitle.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/api/model_user_ad/UserAdModel/mail.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/api/model_user_ad/UserAdModel/mobilePhone.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/api/model_user_ad/UserAdModel/odataContext.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/api/model_user_ad/UserAdModel/officeLocation.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/api/model_user_ad/UserAdModel/preferredLanguage.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/api/model_user_ad/UserAdModel/surname.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/api/model_user_ad/UserAdModel/toJson.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/api/model_user_ad/UserAdModel/userPrincipalName.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/api/model_user_ad/model_user_ad-library.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/api/static-assets/favicon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/api/static-assets/github.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/api/static-assets/highlight.pack.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/api/static-assets/play_button.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/api/static-assets/readme.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/api/static-assets/script.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/api/static-assets/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/ios/Podfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/Podfile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/ios/Runner.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/Runner.xcodeproj/project.pbxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/ios/Runner/AppDelegate.swift" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/Runner/AppDelegate.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/ios/Runner/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/Runner/Info.plist" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/macos/Podfile" beforeDir="false" afterPath="$PROJECT_DIR$/example/macos/Podfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/macos/Podfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/example/macos/Podfile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example/test/widget_test.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/test/widget_test.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/azure_ad_authentication.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/azure_ad_authentication.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/exeption.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/exeption.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/init.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/model/request.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/model/request.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/model/user_ad.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/model/user_ad.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Classes/SwiftAzureAdAuthenticationPlugin.swift" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Classes/SwiftAzureAdAuthenticationPlugin.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/azure_ad_authentication.podspec" beforeDir="false" afterPath="$PROJECT_DIR$/ios/azure_ad_authentication.podspec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/macos/Classes/AzureAdAuthenticationPlugin.swift" beforeDir="false" afterPath="$PROJECT_DIR$/macos/Classes/AzureAdAuthenticationPlugin.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/macos/azure_ad_authentication.podspec" beforeDir="false" afterPath="$PROJECT_DIR$/macos/azure_ad_authentication.podspec" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -152,22 +102,22 @@
       <screen x="0" y="25" width="2560" height="982" />
     </state>
     <state x="1482" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.25.2560.982@0.25.2560.982" timestamp="1633521781902" />
-    <state width="693" height="262" key="GridCell.Tab.0.bottom" timestamp="1633444107114">
+    <state width="704" height="266" key="GridCell.Tab.0.bottom" timestamp="1633722590129">
       <screen x="0" y="25" width="2560" height="982" />
     </state>
-    <state width="693" height="262" key="GridCell.Tab.0.bottom/0.25.2560.982@0.25.2560.982" timestamp="1633444107114" />
-    <state width="693" height="262" key="GridCell.Tab.0.center" timestamp="1633444107114">
+    <state width="704" height="266" key="GridCell.Tab.0.bottom/0.25.2560.982@0.25.2560.982" timestamp="1633722590129" />
+    <state width="704" height="266" key="GridCell.Tab.0.center" timestamp="1633722590128">
       <screen x="0" y="25" width="2560" height="982" />
     </state>
-    <state width="693" height="262" key="GridCell.Tab.0.center/0.25.2560.982@0.25.2560.982" timestamp="1633444107114" />
-    <state width="693" height="262" key="GridCell.Tab.0.left" timestamp="1633444107114">
+    <state width="704" height="266" key="GridCell.Tab.0.center/0.25.2560.982@0.25.2560.982" timestamp="1633722590128" />
+    <state width="704" height="266" key="GridCell.Tab.0.left" timestamp="1633722590128">
       <screen x="0" y="25" width="2560" height="982" />
     </state>
-    <state width="693" height="262" key="GridCell.Tab.0.left/0.25.2560.982@0.25.2560.982" timestamp="1633444107114" />
-    <state width="693" height="262" key="GridCell.Tab.0.right" timestamp="1633444107114">
+    <state width="704" height="266" key="GridCell.Tab.0.left/0.25.2560.982@0.25.2560.982" timestamp="1633722590128" />
+    <state width="704" height="266" key="GridCell.Tab.0.right" timestamp="1633722590129">
       <screen x="0" y="25" width="2560" height="982" />
     </state>
-    <state width="693" height="262" key="GridCell.Tab.0.right/0.25.2560.982@0.25.2560.982" timestamp="1633444107114" />
+    <state width="704" height="266" key="GridCell.Tab.0.right/0.25.2560.982@0.25.2560.982" timestamp="1633722590129" />
     <state width="1935" height="262" key="GridCell.Tab.1.bottom" timestamp="1632663030492">
       <screen x="0" y="25" width="2560" height="982" />
     </state>
@@ -196,10 +146,10 @@
       <screen x="0" y="25" width="2560" height="982" />
     </state>
     <state x="1013" y="241" width="670" height="676" key="search.everywhere.popup/0.25.2560.982@0.25.2560.982" timestamp="1632852643602" />
-    <state x="845" y="356" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1633523074744">
+    <state x="845" y="356" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1633722746660">
       <screen x="0" y="25" width="2560" height="982" />
     </state>
-    <state x="845" y="356" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/0.25.2560.982@0.25.2560.982" timestamp="1633523074744" />
+    <state x="845" y="356" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/0.25.2560.982@0.25.2560.982" timestamp="1633722746660" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -208,6 +158,11 @@
           <url>file://$PROJECT_DIR$/lib/model/request.dart</url>
           <line>9</line>
           <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/azure_ad_authentication.dart</url>
+          <line>23</line>
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

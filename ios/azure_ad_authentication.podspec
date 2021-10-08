@@ -16,7 +16,7 @@ A new flutter plugin project.
   s.source_files = 'Classes/**/*'
   s.dependency 'Flutter'
   s.platform = :ios, '11'
-  s.dependency 'MSAL', '~> 1.0.3'
+  s.dependency 'MSAL', '~> 1.1.22'
 
 
   # Flutter.framework does not contain a i386 slice.

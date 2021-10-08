@@ -48,6 +48,7 @@ public class AzureAdAuthenticationPlugin: NSObject, FlutterPlugin {
             
     
             let webViewParameters = MSALWebviewParameters()
+
     
             
             let interactiveParameters = MSALInteractiveTokenParameters(scopes: scopes, webviewParameters: webViewParameters)

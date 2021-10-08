@@ -1,7 +1,7 @@
 name: azure_ad_authentication
 description: The Microsoft Authentication Library (MSAL) enables developers to acquire tokens
   from the Microsoft identity platform in order to authenticate users and access secured
-version: 1.0.1
+version: 1.0.2
 homepage: https://github.com/fabio21/azure_ad_authentication
 
 environment:

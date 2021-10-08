@@ -15,10 +15,10 @@ A new flutter plugin project.
   s.source           = { :path => '.' }
   s.source_files     = 'Classes/**/*'
   s.dependency 'FlutterMacOS'
-  s.platform = :osx, '10.11'
-  s.dependency 'MSAL', '~> 1.0.3'
+  s.platform = :osx, '10.15'
+  s.dependency 'MSAL', '~> 1.1.22'
 
   s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES' }
   s.swift_version = '4.0'
-  s.ios.deployment_target = '10.11'
+  s.ios.deployment_target = '10.15'
 end

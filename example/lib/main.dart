@@ -1,6 +1,9 @@
 
+import 'dart:io';
+
 import 'package:azure_ad_authentication/azure_ad_authentication.dart';
 import 'package:azure_ad_authentication/exeption.dart';
+import 'package:azure_ad_authentication/model/config.dart';
 import 'package:azure_ad_authentication/model/user_ad.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
@@ -16,15 +19,13 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  static const String _authority =
-      "https://login.microsoftonline.com/organizations/oauth2/v2.0/authorize";
 
   static const String _clientId = "xxxxxxxxx";
+  static const String _androidPackageSignature = "U5rbvBLdFUbEazWhQfDgt6oRa24=";
 
   String _output = 'NONE';
   static const List<String> kScopes = [
-    "https://graph.microsoft.com/user.read",
-    "https://graph.microsoft.com/Calendars.ReadWrite",
+    "email",
   ];
 
   Future<void> _acquireToken() async {
@@ -63,9 +64,32 @@ class _MyAppState extends State<MyApp> {
     return (userAdModel?.toJson().toString() ?? res)!;
   }
 
+  String _getRedirectUri() {
+    final p = Platform.packageConfig;
+    switch (Platform.operatingSystem) {
+      case "android":
+        return "msauth://com.fsconceicao.azure_ad_authentication_example/${Uri.encodeComponent(_androidPackageSignature)}";
+      case "ios":
+        return "msauth.com.fsconceicao.azureAdAuthenticationExample://auth";
+    }
+    throw UnimplementedError();
+  }
+
   Future<AzureAdAuthentication> intPca() async {
     return await AzureAdAuthentication.createPublicClientApplication(
-        clientId: _clientId, authority: _authority);
+        config: MsalConfig(
+          clientId: _clientId,
+          redirectUri: _getRedirectUri(),
+          accountMode: AccountMode.SINGLE,
+          authorizationUserAgent: AuthorizedUserAgent.DEFAULT,
+          authorities: [
+            const MsalAuthority(
+              AuthorityType.AAD,
+              MsalAudience(AudienceType.AzureADMyOrg, tenantId: "common"),
+            ),
+          ]
+        ),
+      );
   }
 
   Future _logout() async {
@@ -90,7 +114,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Plugin example app'),
+          title: const Text("Plugin example app"),
         ),
         body: SingleChildScrollView(
           child: Center(
@@ -100,16 +124,16 @@ class _MyAppState extends State<MyApp> {
                   padding: const EdgeInsets.all(8.0),
                   child: ElevatedButton(
                     onPressed: _acquireToken,
-                    child: const Text('AcquireToken()'),
+                    child: const Text("AcquireToken()"),
                   ),
                 ),
                 ElevatedButton(
                     onPressed: _acquireTokenSilently,
-                    child: const Text('AcquireTokenSilently()')),
+                    child: const Text("AcquireTokenSilently()")),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: ElevatedButton(
-                      onPressed: _logout, child: const Text('Logout')),
+                      onPressed: _logout, child: const Text("Logout")),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),

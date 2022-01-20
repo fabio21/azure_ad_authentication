@@ -74,41 +74,6 @@ keytool -exportcert -alias androiddebugkey -keystore %HOMEPATH%\.android\debug.k
     }
  ```
 
-* Path folder res -> raw ->  msal_default_config.json
-> [MSAL (Microsoft Authentication Library)](https://docs.microsoft.com/pt-br/azure/active-directory/develop/msal-configuration)
-
-```
-{
-  "authorities": [
-    {
-      "type": "AAD",
-      "audience": {
-        "type": "AzureADMyOrg",
-        "tenant_id": "organizations"
-      }
-    }
-  ],
-  "client_id": "xxxxxxxxxxxxxxx",
-  "redirect_uri" : "msauth://com.exemple/U5rbvBLdFUbEazWhQfDgt6oRa24%3D",
-  "authorization_user_agent": "DEFAULT",
-  "minimum_required_broker_protocol_version": "3.0",
-  "multiple_clouds_supported": false,
-  "broker_redirect_uri_registered": true,
-  "environment": "Production",
-  "http": {
-    "connect_timeout": 10000,
-    "read_timeout": 30000
-  },
-  "logging": {
-    "pii_enabled": false,
-    "log_level": "WARNING",
-    "logcat_enabled": true
-  },
-  "account_mode": "MULTIPLE",
-
-}
-```
-
 ## iOs Configs
 * Version msal 1.1.22
 - https://github.com/AzureAD/microsoft-authentication-library-for-objc

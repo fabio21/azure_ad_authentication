@@ -1,12 +1,12 @@
 package com.fsconceicao.azure_ad_authentication
 
-import android.app.Activity
 import android.content.Context
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
 import com.microsoft.identity.client.*
 import com.microsoft.identity.client.IPublicClientApplication.IMultipleAccountApplicationCreatedListener
+import com.microsoft.identity.client.IPublicClientApplication.ISingleAccountApplicationCreatedListener
 import com.microsoft.identity.client.exception.MsalClientException
 import com.microsoft.identity.client.exception.MsalException
 import com.microsoft.identity.client.exception.MsalServiceException
@@ -18,7 +18,7 @@ class Msal(context: Context, activity: FlutterActivity?) {
     internal val applicationContext = context
     internal var activity: FlutterActivity? = activity
 
-    lateinit var adAuthentication: IMultipleAccountPublicClientApplication
+    lateinit var adAuthentication: IPublicClientApplication
     lateinit var accountList: List<IAccount>
 
     fun setActivity(activity: FlutterActivity) {
@@ -27,10 +27,28 @@ class Msal(context: Context, activity: FlutterActivity?) {
 
     internal fun isClientInitialized(): Boolean = ::adAuthentication.isInitialized
 
-    internal fun getApplicationCreatedListener(result: MethodChannel.Result): IMultipleAccountApplicationCreatedListener {
+    internal fun getMultipleApplicationCreatedListener(result: MethodChannel.Result): IMultipleAccountApplicationCreatedListener {
 
         return object : IMultipleAccountApplicationCreatedListener {
             override fun onCreated(application: IMultipleAccountPublicClientApplication) {
+                adAuthentication = application
+                result.success(true)
+            }
+
+            override fun onError(exception: MsalException?) {
+                result.error(
+                    "INIT_ERROR",
+                    "Error initializting client = ${exception.toString()}",
+                    exception?.localizedMessage
+                )
+            }
+        }
+    }
+
+    internal fun getSingleApplicationCreatedListener(result: MethodChannel.Result): ISingleAccountApplicationCreatedListener {
+
+        return object : ISingleAccountApplicationCreatedListener {
+            override fun onCreated(application: ISingleAccountPublicClientApplication) {
                 adAuthentication = application
                 result.success(true)
             }
@@ -49,7 +67,14 @@ class Msal(context: Context, activity: FlutterActivity?) {
         return object : AuthenticationCallback {
             override fun onSuccess(authenticationResult: IAuthenticationResult) {
                 Handler(Looper.getMainLooper()).post {
-                    result.success("{\"accessToken\":\"${authenticationResult.accessToken}\",\"expiresOn\":\"${authenticationResult.expiresOn}\"}")
+                    val account = authenticationResult.account as MultiTenantAccount;
+                    result.success(
+                        mapOf(
+                            "identifier" to "${account.id}.${account.tenantId}",
+                            "accessToken" to authenticationResult.accessToken,
+                            "expiresOn" to "${authenticationResult.expiresOn}"
+                        ))
+
                 }
             }
 
@@ -118,23 +143,24 @@ class Msal(context: Context, activity: FlutterActivity?) {
      */
     internal fun loadAccounts(result: MethodChannel.Result) {
 
-        adAuthentication.getAccounts(object : IPublicClientApplication.LoadAccountsCallback {
 
-            override fun onTaskCompleted(resultList: List<IAccount>) {
-                accountList = resultList
-                result.success(true)
-            }
+        (adAuthentication as? IMultipleAccountPublicClientApplication)?.let {
+            it.getAccounts(object : IPublicClientApplication.LoadAccountsCallback {
 
-            override fun onError(exception: MsalException) {
-                result.error(
-                    "NO_ACCOUNT",
-                    "No account is available to acquire token silently for",
-                    exception
-                )
-            }
-        })
+                override fun onTaskCompleted(resultList: List<IAccount>) {
+                    accountList = resultList
+                    result.success(true)
+                }
+
+                override fun onError(exception: MsalException) {
+                    result.error(
+                        "NO_ACCOUNT",
+                        "No account is available to acquire token silently for",
+                        exception
+                    )
+                }
+            })
+        }
     }
-
-
 }
 

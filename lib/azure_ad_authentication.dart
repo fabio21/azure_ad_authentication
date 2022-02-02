@@ -1,21 +1,21 @@
 import 'dart:async';
-import 'dart:convert';
 import 'dart:io';
 import 'package:flutter/services.dart';
 
 import 'exeption.dart';
+import 'model/config.dart';
 import 'model/request.dart';
 import 'model/user_ad.dart';
 
 class AzureAdAuthentication {
   static const MethodChannel _channel =
       MethodChannel('azure_ad_authentication');
-  late String? _clientId, _authority;
+      late MsalConfig _config;
+  // late String? _clientId, _authority;
 
   AzureAdAuthentication._create(
-      {required String clientId, required String authority}) {
-    _clientId = clientId;
-    _authority = authority;
+      {required MsalConfig config}) {
+    _config = config;
   }
 
   ///initialize client application
@@ -25,9 +25,9 @@ class AzureAdAuthentication {
   /// return AzureAdAuthentication
   /// ```
   static Future<AzureAdAuthentication> createPublicClientApplication(
-      {required String clientId, required String authority}) async {
+      {required MsalConfig config}) async {
     var res =
-        AzureAdAuthentication._create(clientId: clientId, authority: authority);
+        AzureAdAuthentication._create(config: config);
     await res._initialize();
 
     return res;
@@ -35,12 +35,15 @@ class AzureAdAuthentication {
 
   /// Acquire a token interactively for the given [scopes]
   /// return [UserAdModel] contains user information but token and expiration date
-  Future<UserAdModel?> acquireToken({required List<String> scopes}) async {
+  Future<UserAdModel?> acquireToken({
+    required List<String> scopes,
+    bool fetchUserModel = false,
+  }) async {
     var res = <String, dynamic>{'scopes': scopes};
     try {
-      final String? json = await _channel.invokeMethod('acquireToken', res);
-      UserAdModel userAdModel = UserAdModel.fromJson(jsonDecode(json!));
-      return await _getUserModel(userAdModel);
+      final result = await _channel.invokeMapMethod<String, dynamic>('acquireToken', res);
+      UserAdModel userAdModel = UserAdModel.fromJson(result!);
+      return fetchUserModel ? await _getUserModel(userAdModel) : userAdModel;
     } on PlatformException catch (e) {
       throw _convertException(e);
     }
@@ -50,9 +53,11 @@ class AzureAdAuthentication {
     if (userAdModel.accessToken != null) {
       UserAdModel? user = (await Request.post(token: userAdModel.accessToken!));
       if (user != null) {
-        user.accessToken = userAdModel.accessToken;
-        user.expiresOn = userAdModel.expiresOn;
-        return user;
+        return user.copyWith(
+          identifier: userAdModel.identifier,
+          accessToken: userAdModel.accessToken,
+          expiresOn: userAdModel.expiresOn,
+        );
       }
     }
     return userAdModel;
@@ -60,17 +65,19 @@ class AzureAdAuthentication {
 
   /// Acquire a token silently, with no user interaction, for the given [scopes]
   /// return [UserAdModel] contains user information but token and expiration date
-  Future<UserAdModel?> acquireTokenSilent(
-      {required List<String> scopes}) async {
+  Future<UserAdModel?> acquireTokenSilent({
+    required List<String> scopes,
+    bool fetchUserModel = false,
+  }) async {
     var res = <String, dynamic>{'scopes': scopes};
     try {
       if (Platform.isAndroid) {
         await _channel.invokeMethod('loadAccounts');
       }
-      final String json =
-          await _channel.invokeMethod('acquireTokenSilent', res);
-      UserAdModel userAdModel = UserAdModel.fromJson(jsonDecode(json));
-      return await _getUserModel(userAdModel);
+      final result =
+          await _channel.invokeMapMethod<String, dynamic>('acquireTokenSilent', res);
+      UserAdModel userAdModel = UserAdModel.fromJson(result!);
+      return fetchUserModel ? await _getUserModel(userAdModel) : userAdModel;
     } on PlatformException catch (e) {
       throw _convertException(e);
     }
@@ -116,13 +123,10 @@ class AzureAdAuthentication {
   }
 
   Future _initialize() async {
-    var res = <String, dynamic>{'clientId': _clientId};
-    if (_authority != null) {
-      res["authority"] = _authority;
-    }
-
     try {
-      await _channel.invokeMethod('initialize', res);
+      await _channel.invokeMethod('initialize', {
+        'config': _config.toMap(),
+      });
     } on PlatformException catch (e) {
       throw _convertException(e);
     }

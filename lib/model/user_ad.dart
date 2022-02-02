@@ -1,5 +1,33 @@
+class AzureAdResponse {
+  AzureAdResponse({
+    required this.identifier,
+    required this.accessToken,
+    required this.expiresOn,
+  });
+
+  final String identifier;
+  final String accessToken;
+  final String expiresOn;
+
+  factory AzureAdResponse.fromJson(Map<String, dynamic> json) {
+    return AzureAdResponse(
+      identifier: json['identifier'],
+      accessToken: json['accessToken'],
+      expiresOn: json["expiresOn"],
+    );
+  }
+  Map<String, dynamic>? toJson() => {
+        'identifier': identifier,
+        'accessToken': accessToken,
+        'expiresOn': expiresOn,
+      };
+}
+
 class UserAdModel {
   final String? odataContext;
+  /// A composite key created by the userId (oid) and tenantId (tid) used
+  /// internally in MSAL as a caching key
+  final String? identifier;
   final String? id;
   final String? displayName;
   final String? givenName;
@@ -11,11 +39,12 @@ class UserAdModel {
   final String? mobilePhone;
   final String? officeLocation;
   final String? preferredLanguage;
-  String? accessToken;
-  String? expiresOn;
+  final String? accessToken;
+  final String? expiresOn;
 
   UserAdModel({
     this.id,
+    this.identifier,
     this.displayName,
     this.givenName,
     this.surname,
@@ -52,6 +81,7 @@ class UserAdModel {
     return UserAdModel(
       odataContext: json['@odata.context'],
       id: json['id'],
+      identifier: json['identifier'],
       displayName: json['displayName'],
       givenName: json['givenName'],
       surname: json['surname'],
@@ -74,6 +104,7 @@ class UserAdModel {
 
   Map<String, dynamic>? toJson() => {
         'id': id,
+        "identifier": identifier,
         'displayName': displayName,
         'givenName': givenName,
         'surname': surname,
@@ -86,4 +117,40 @@ class UserAdModel {
         'accessToken': accessToken,
         'expiresOn': expiresOn,
       };
+
+
+  UserAdModel copyWith({
+    String? odataContext,
+    String? identifier,
+    String? id,
+    String? displayName,
+    String? givenName,
+    String? surname,
+    String? userPrincipalName,
+    String? mail,
+    List<String>? businessPhones,
+    String? jobTitle,
+    String? mobilePhone,
+    String? officeLocation,
+    String? preferredLanguage,
+    String? accessToken,
+    String? expiresOn,
+
+  }) => UserAdModel(
+    odataContext: odataContext ?? this.odataContext,
+    identifier: identifier ?? this.identifier,
+    id: id ?? this.id,
+    displayName: displayName ?? this.displayName,
+    givenName: givenName ?? this.givenName,
+    surname: surname ?? this.surname,
+    userPrincipalName: userPrincipalName ?? this.userPrincipalName,
+    mail: mail ?? this.mail,
+    businessPhones: businessPhones ?? this.businessPhones,
+    jobTitle: jobTitle ?? this.jobTitle,
+    mobilePhone: mobilePhone ?? this.mobilePhone,
+    officeLocation: officeLocation ?? this.officeLocation,
+    preferredLanguage: preferredLanguage ?? this.preferredLanguage,
+    accessToken: accessToken ?? this.accessToken,
+    expiresOn: expiresOn ?? this.expiresOn,
+  );
 }

@@ -108,7 +108,7 @@ public class AzureAdAuthenticationPlugin: NSObject, FlutterPlugin {
     
     fileprivate func getResultLogin(_ authResult: MSALResult) -> String?{
         // Get access token from result
-        let jsonObject:[String : Any] = ["accessToken":authResult.accessToken, "expiresOn":authResult.expiresOn.description];
+        let jsonObject:[String : Any] = ["accessToken":authResult.accessToken, "expiresOn":"\(String(describing: authResult.expiresOn))"];
         do{
             let jsonData = try JSONSerialization.data(withJSONObject: jsonObject, options: .prettyPrinted)
             if let jsonString:String = String(data: jsonData, encoding: .utf8){

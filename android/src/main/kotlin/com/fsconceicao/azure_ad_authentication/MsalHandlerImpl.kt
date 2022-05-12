@@ -20,7 +20,7 @@ class MsalHandlerImpl(private val msal: Msal) : MethodChannel.MethodCallHandler 
     @Nullable
     private var channel: MethodChannel? = null
 
-    fun startListening(messenger: BinaryMessenger?) {
+    fun startListening(messenger: BinaryMessenger) {
         if (channel != null) {
             Log.wtf(TAG, "Setting a method call handler before the last was disposed.")
             stopListening()

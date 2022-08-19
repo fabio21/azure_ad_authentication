@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
+
 import 'package:flutter/services.dart';
 
 import 'exeption.dart';
@@ -12,8 +13,10 @@ class AzureAdAuthentication {
       MethodChannel('azure_ad_authentication');
   late String? _clientId, _authority;
 
-  AzureAdAuthentication._create(
-      {required String clientId, required String authority}) {
+  AzureAdAuthentication._create({
+    required String clientId,
+    required String authority,
+  }) {
     _clientId = clientId;
     _authority = authority;
   }
@@ -41,6 +44,18 @@ class AzureAdAuthentication {
       final String? json = await _channel.invokeMethod('acquireToken', res);
       UserAdModel userAdModel = UserAdModel.fromJson(jsonDecode(json!));
       return await _getUserModel(userAdModel);
+    } on PlatformException catch (e) {
+      throw _convertException(e);
+    }
+  }
+
+  /// Acquire a token interactively for the given [scopes]
+  /// return [String]  {accessToken": xxx,"expiresOn" : xxx}
+  Future<String> acquireTokenString({required List<String> scopes}) async {
+    var res = <String, dynamic>{'scopes': scopes};
+    try {
+      final String? json = await _channel.invokeMethod('acquireToken', res);
+      return json ?? "Error";
     } on PlatformException catch (e) {
       throw _convertException(e);
     }

@@ -35,6 +35,12 @@ class _MyAppState extends State<MyApp> {
     await getResult(isAcquireToken: false);
   }
 
+  /// example return "{accessToken": xxx,"expiresOn" : xxx}"
+  Future<String> tokenString() async {
+    AzureAdAuthentication pca = await intPca();
+    return await pca.acquireTokenString(scopes: kScopes);
+  }
+
   Future<String> getResult({bool isAcquireToken = true}) async {
     AzureAdAuthentication pca = await intPca();
     String? res;

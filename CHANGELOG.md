@@ -1,5 +1,6 @@
+## 1.0.3
+- Msal version android update 4.+
 ## 1.0.2
-
 - Msal iOs and MacOs
 - update lib msal 1.1.22 
 - fix logout error

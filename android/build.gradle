@@ -1,12 +1,12 @@
 group 'com.fsconceicao.azure_ad_authentication'
 version '1.0-SNAPSHOT'
-def msalVersion = "2.+"
+def msalVersion = "4.+"
 if (project.hasProperty("distMsalVersion")) {
     msalVersion = distMsalVersion
 }
 
 buildscript {
-    ext.kotlin_version = '1.7.10'
+    ext.kotlin_version = '1.7.20'
     repositories {
         google()
         mavenCentral()

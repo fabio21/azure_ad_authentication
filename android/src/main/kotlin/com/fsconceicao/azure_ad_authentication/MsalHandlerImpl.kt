@@ -3,9 +3,7 @@ package com.fsconceicao.azure_ad_authentication
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
-import com.microsoft.identity.client.IAccount
-import com.microsoft.identity.client.IMultipleAccountPublicClientApplication
-import com.microsoft.identity.client.PublicClientApplication
+import com.microsoft.identity.client.*
 import com.microsoft.identity.client.exception.MsalException
 import io.flutter.plugin.common.BinaryMessenger
 import io.flutter.plugin.common.MethodCall
@@ -32,12 +30,12 @@ class MsalHandlerImpl(private val msal: Msal) : MethodChannel.MethodCallHandler 
 
     fun stopListening() {
         if (channel == null) {
-            Log.d(TAG, "Tried to stop listening when no MethodChannel had been initialized.");
-            return;
+            Log.d(TAG, "Tried to stop listening when no MethodChannel had been initialized.")
+            return
         }
 
-        channel!!.setMethodCallHandler(null);
-        channel = null;
+        channel!!.setMethodCallHandler(null)
+        channel = null
     }
 
     override fun onMethodCall(call: MethodCall, result: MethodChannel.Result) {
@@ -51,7 +49,7 @@ class MsalHandlerImpl(private val msal: Msal) : MethodChannel.MethodCallHandler 
                 initialize(clientId, result)
             }
             "loadAccounts" -> Thread(Runnable { msal.loadAccounts(result) }).start()
-            "acquireToken" -> Thread(Runnable { acquireToken(scopes, result)}).start()
+            "acquireToken" -> Thread(Runnable { acquireToken(scopes, result) }).start()
             "acquireTokenSilent" -> Thread(Runnable { acquireTokenSilent(scopes, result) }).start()
             "logout" -> Thread(Runnable { logout(result) }).start()
             else -> result.notImplemented()
@@ -133,27 +131,28 @@ class MsalHandlerImpl(private val msal: Msal) : MethodChannel.MethodCallHandler 
             }
             return
         }
-        val selectedAccount: IAccount = msal.accountList.first();
+        val selectedAccount: IAccount = msal.accountList.first()
         //acquire the token and return the result
-        val sc = scopes.map { s -> s.toLowerCase(Locale.ROOT) }.toTypedArray()
+        val sc = scopes.map { s -> s.lowercase(Locale.ROOT) }.toTypedArray()
 
-        msal.adAuthentication.acquireTokenSilentAsync(
-            sc,
-            selectedAccount,
-            selectedAccount.authority,
-            msal.getAuthSilentCallback(result)
-        )
+        val builder = AcquireTokenSilentParameters.Builder()
+        builder.withScopes(scopes.toList())
+            .forAccount(selectedAccount)
+            .fromAuthority(selectedAccount.authority)
+            .withCallback(msal.getAuthCallback(result))
+        val acquireTokenParameters = builder.build()
+        msal.adAuthentication.acquireTokenSilentAsync(acquireTokenParameters)
     }
 
     private fun acquireToken(scopes: Array<String>?, result: MethodChannel.Result) {
         if (!msal.isClientInitialized()) {
-           // Handler(Looper.getMainLooper()).post {
+            Handler(Looper.getMainLooper()).post {
                 result.error(
                     "NO_CLIENT",
                     "Client must be initialized before attempting to acquire a token.",
                     null
                 )
-           // }
+            }
         }
 
         if (scopes == null) {
@@ -169,11 +168,13 @@ class MsalHandlerImpl(private val msal: Msal) : MethodChannel.MethodCallHandler 
         //acquire the token
 
         msal.activity.let {
-            it?.let { it1 ->
-                msal.adAuthentication.acquireToken(
-                    it1.activity, scopes, msal.getAuthCallback(result)
-                )
-            }
+            val builder = AcquireTokenParameters.Builder()
+            builder.startAuthorizationFromActivity(it?.activity)
+                .withScopes(scopes.toList())
+                .withPrompt(Prompt.LOGIN)
+                .withCallback(msal.getAuthCallback(result))
+            val acquireTokenParameters = builder.build()
+            msal.adAuthentication.acquireToken(acquireTokenParameters)
         }
     }
 

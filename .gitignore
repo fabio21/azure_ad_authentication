@@ -3,5 +3,6 @@
 
 .packages
 .pub/
+.build
 
 build/clear

@@ -9,11 +9,17 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d962cc96-278e-44b0-b112-69cb6025ef5f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/macos/Podfile.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/macos/azure_ad_authentication.podspec" beforeDir="false" afterPath="$PROJECT_DIR$/macos/azure_ad_authentication.podspec" afterDir="false" />
+    <list default="true" id="d962cc96-278e-44b0-b112-69cb6025ef5f" name="Default Changelist" comment="upgrade flutter 3.0">
+      <change afterPath="$PROJECT_DIR$/example/android/app/src/main/res/xml/data_extraction_rules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/src/main/kotlin/com/fsconceicao/azure_ad_authentication/MsalHandlerImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/kotlin/com/fsconceicao/azure_ad_authentication/MsalHandlerImpl.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/example/android/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/example/android/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/android/app/src/main/res/raw/msal_default_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/example/android/app/src/main/res/raw/msal_default_config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/macos/Flutter/GeneratedPluginRegistrant.swift" beforeDir="false" afterPath="$PROJECT_DIR$/example/macos/Flutter/GeneratedPluginRegistrant.swift" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +36,17 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/../../flutter/bin/cache/pkg/sky_engine/lib/async/schedule_microtask.dart" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../flutter/packages/flutter/lib/src/foundation/binding.dart" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/android/.project" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/example/android/app/src/main/AndroidManifest.xml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/example/android/app/src/main/res/raw/msal_default_config.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/example/ios/Runner/Info.plist" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/example/lib/main.dart" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/lib/azure_ad_authentication.dart" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/lib/exeption.dart" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="ProjectId" id="1yYCA6bYblAoMCVgLBUMq9h9etd" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -38,20 +55,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
-    <property name="ASKED_MARK_IGNORED_FILES_AS_EXCLUDED" value="true" />
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
-    <property name="cidr.known.project.marker" value="true" />
-    <property name="dart.analysis.tool.window.force.activate" value="true" />
-    <property name="dart.analysis.tool.window.visible" value="false" />
-    <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
-    <property name="show.migrate.to.gradle.popup" value="false" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "dart.analysis.tool.window.visible": "false",
+    "io.flutter.reload.alreadyRun": "true",
+    "settings.editor.selected.configurable": "flutter.settings"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/lib/model" />
@@ -89,64 +99,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/example/macos" />
     </ignored-roots>
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="541" y="176" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1632741407379">
-      <screen x="0" y="25" width="2560" height="982" />
-    </state>
-    <state x="541" y="176" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.25.2560.982@0.25.2560.982" timestamp="1632741407379" />
-    <state x="1482" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1633521781902">
-      <screen x="0" y="25" width="2560" height="982" />
-    </state>
-    <state x="1482" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.25.2560.982@0.25.2560.982" timestamp="1633521781902" />
-    <state width="704" height="266" key="GridCell.Tab.0.bottom" timestamp="1633722590129">
-      <screen x="0" y="25" width="2560" height="982" />
-    </state>
-    <state width="704" height="266" key="GridCell.Tab.0.bottom/0.25.2560.982@0.25.2560.982" timestamp="1633722590129" />
-    <state width="704" height="266" key="GridCell.Tab.0.center" timestamp="1633722590128">
-      <screen x="0" y="25" width="2560" height="982" />
-    </state>
-    <state width="704" height="266" key="GridCell.Tab.0.center/0.25.2560.982@0.25.2560.982" timestamp="1633722590128" />
-    <state width="704" height="266" key="GridCell.Tab.0.left" timestamp="1633722590128">
-      <screen x="0" y="25" width="2560" height="982" />
-    </state>
-    <state width="704" height="266" key="GridCell.Tab.0.left/0.25.2560.982@0.25.2560.982" timestamp="1633722590128" />
-    <state width="704" height="266" key="GridCell.Tab.0.right" timestamp="1633722590129">
-      <screen x="0" y="25" width="2560" height="982" />
-    </state>
-    <state width="704" height="266" key="GridCell.Tab.0.right/0.25.2560.982@0.25.2560.982" timestamp="1633722590129" />
-    <state width="1935" height="262" key="GridCell.Tab.1.bottom" timestamp="1632663030492">
-      <screen x="0" y="25" width="2560" height="982" />
-    </state>
-    <state width="1935" height="262" key="GridCell.Tab.1.bottom/0.25.2560.982@0.25.2560.982" timestamp="1632663030492" />
-    <state width="1935" height="262" key="GridCell.Tab.1.center" timestamp="1632663030492">
-      <screen x="0" y="25" width="2560" height="982" />
-    </state>
-    <state width="1935" height="262" key="GridCell.Tab.1.center/0.25.2560.982@0.25.2560.982" timestamp="1632663030492" />
-    <state width="1935" height="262" key="GridCell.Tab.1.left" timestamp="1632663030492">
-      <screen x="0" y="25" width="2560" height="982" />
-    </state>
-    <state width="1935" height="262" key="GridCell.Tab.1.left/0.25.2560.982@0.25.2560.982" timestamp="1632663030492" />
-    <state width="1935" height="262" key="GridCell.Tab.1.right" timestamp="1632663030492">
-      <screen x="0" y="25" width="2560" height="982" />
-    </state>
-    <state width="1935" height="262" key="GridCell.Tab.1.right/0.25.2560.982@0.25.2560.982" timestamp="1632663030492" />
-    <state x="927" y="151" key="SettingsEditor" timestamp="1633432565225">
-      <screen x="0" y="25" width="2560" height="982" />
-    </state>
-    <state x="927" y="151" key="SettingsEditor/0.25.2560.982@0.25.2560.982" timestamp="1633432565225" />
-    <state x="697" y="125" width="1863" height="781" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1633269729896">
-      <screen x="0" y="25" width="2560" height="982" />
-    </state>
-    <state x="697" y="125" width="1863" height="781" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.25.2560.982@0.25.2560.982" timestamp="1633269729896" />
-    <state x="1013" y="241" width="670" height="676" key="search.everywhere.popup" timestamp="1632852643602">
-      <screen x="0" y="25" width="2560" height="982" />
-    </state>
-    <state x="1013" y="241" width="670" height="676" key="search.everywhere.popup/0.25.2560.982@0.25.2560.982" timestamp="1632852643602" />
-    <state x="845" y="356" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1633722746660">
-      <screen x="0" y="25" width="2560" height="982" />
-    </state>
-    <state x="845" y="356" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/0.25.2560.982@0.25.2560.982" timestamp="1633722746660" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

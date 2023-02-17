@@ -19,7 +19,7 @@ class _MyAppState extends State<MyApp> {
   static const String _authority =
       "https://login.microsoftonline.com/organizations/oauth2/v2.0/authorize";
 
-  static const String _clientId = "xxxxxxxxx";
+  static const String _clientId = "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx";
 
   String _output = 'NONE';
   static const List<String> kScopes = [

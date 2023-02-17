@@ -6,14 +6,13 @@
 
     <application
         android:label="azure_ad_authentication"
-         android:name="${applicationName}"
+        android:name="${applicationName}"
         android:supportsRtl="true"
-        android:allowBackup="true"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
-            android:label="Julia"
+            android:label="ad_authentication"
             android:exported="true"
             android:theme="@style/LaunchTheme"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
@@ -53,7 +52,7 @@
                 <category android:name="android.intent.category.BROWSABLE" />
 
                 <data
-                    android:host="xxxxxxxx"
+                    android:host="xxxxxxxxx"
                     android:path="/U5rbvBLdFUbEazWhQfDgt6oRa24="
                     android:scheme="msauth" />
             </intent-filter>

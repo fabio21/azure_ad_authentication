@@ -43,7 +43,7 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId "xxx.xxxxx.xxxxx.xxxxx.xx"
+        applicationId "com.fsconceicao.azure_ad_authentication_example"
         minSdkVersion 21
         targetSdkVersion 33
         versionCode flutterVersionCode.toInteger()

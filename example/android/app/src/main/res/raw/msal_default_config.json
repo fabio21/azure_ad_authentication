@@ -1,7 +1,7 @@
 {
-  "client_id" : "xxxxxxxxxxx",
+  "client_id" : "2794d211-4e3f-4010-9f37-250f928d19c5",
   "authorization_user_agent" : "DEFAULT",
-  "redirect_uri" : "msauth://xxxxxxxxxx/U5rbvBLdFUbEazWhQfDgt6oRa24%3D",
+  "redirect_uri" : "msauth://com.fsconceicao.azure_ad_authentication_example/U5rbvBLdFUbEazWhQfDgt6oRa24%3D",
   "account_mode" : "MULTIPLE",
   "minimum_required_broker_protocol_version": "3.0",
   "multiple_clouds_supported": false,
@@ -17,7 +17,8 @@
       "type": "AAD",
       "authority_url": "https://login.microsoftonline.com/organizations",
       "audience": {
-        "type": "AzureADMultipleOrgs"
+        "type": "AzureADandPersonalMicrosoftAccount",
+        "tenant_id": "common"
       },
       "default": true
     }

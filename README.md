@@ -19,6 +19,33 @@ Click on the New registration button at the top left of the page.
 - Note don't forget to add your Keystore folder to your App folder on android
 with keystore key
 
+## Extra Setup for Android Network Security for Msal 4.+
+* Path folder res -> xml -> network_security_config.xml
+
+* No Network Security Config specified, using platform default
+
+* Example
+```
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <debug-overrides>
+        <trust-anchors>
+            <!-- Trust preinstalled CAs -->
+            <certificates src="system" />
+            <!-- Trust user added CAs while debuggable only -->
+            <certificates src="user" />
+        </trust-anchors>
+    </debug-overrides>
+</network-security-config>
+```
+* AndroidManifest.xml
+```
+<application
+   android:networkSecurityConfig="@xml/network_security_config"
+```
+* Network Security Config from resource network_security_config debugBuild: true
+* [Check Network Security Android here](https://developer.android.com/training/articles/security-config?hl=pt-br)
+
 For Andriod
 
 * Integrating with a broker

@@ -87,7 +87,7 @@ class AzureAdAuthentication {
       UserAdModel userAdModel = UserAdModel.fromJson(jsonDecode(json));
       return await _getUserModel(userAdModel);
     } on PlatformException catch (e) {
-      throw _convertException(e);
+      throw _convertException(e).errorMessage;
     }
   }
 
@@ -99,7 +99,7 @@ class AzureAdAuthentication {
       }
       await _channel.invokeMethod('logout', <String, dynamic>{});
     } on PlatformException catch (e) {
-      throw _convertException(e);
+      throw _convertException(e).errorMessage;
     }
   }
 
@@ -139,7 +139,7 @@ class AzureAdAuthentication {
     try {
       await _channel.invokeMethod('initialize', res);
     } on PlatformException catch (e) {
-      throw _convertException(e);
+      throw _convertException(e).errorMessage;
     }
   }
 }

@@ -16,7 +16,7 @@ A new flutter plugin project.
   s.source_files     = 'Classes/**/*'
   s.dependency 'FlutterMacOS'
   s.platform = :osx, '10.9'
-  s.dependency 'MSAL', '~> 1.1.22'
+  s.dependency 'MSAL', '~> 1.2.9'
 
   s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES' }
   s.swift_version = '4.0'

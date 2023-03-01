@@ -30,7 +30,8 @@
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>https://graph.microsoft.com/</string>
+				<string>msauth.com.fsconceicao.azureAdAuthenticationExample</string>
+                <string>msayth.com.fsconceicao.azure_ad_authentication_example</string>
 			</array>
 		</dict>
 	</array>

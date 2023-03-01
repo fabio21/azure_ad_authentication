@@ -18,6 +18,7 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   static const String _authority =
       "https://login.microsoftonline.com/organizations/oauth2/v2.0/authorize";
+  static const String _redirectUri = "msauth.msal2794d211-4e3f-4010-9f37-250f928d19c5://auth";
 
   static const String _clientId = "2794d211-4e3f-4010-9f37-250f928d19c5";
 
@@ -71,7 +72,7 @@ class _MyAppState extends State<MyApp> {
 
   Future<AzureAdAuthentication> intPca() async {
     return await AzureAdAuthentication.createPublicClientApplication(
-        clientId: _clientId, authority: _authority);
+        clientId: _clientId, authority: _authority, redirectUri: _redirectUri,);
   }
 
   Future _logout() async {

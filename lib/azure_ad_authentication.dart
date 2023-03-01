@@ -11,14 +11,16 @@ import 'model/user_ad.dart';
 class AzureAdAuthentication {
   static const MethodChannel _channel =
       MethodChannel('azure_ad_authentication');
-  late String? _clientId, _authority;
+  late String? _clientId, _authority, _redirectUri;
 
   AzureAdAuthentication._create({
     required String clientId,
     required String authority,
+    String? redirectUri,
   }) {
     _clientId = clientId;
     _authority = authority;
+    _redirectUri = redirectUri;
   }
 
   ///initialize client application
@@ -28,9 +30,9 @@ class AzureAdAuthentication {
   /// return AzureAdAuthentication
   /// ```
   static Future<AzureAdAuthentication> createPublicClientApplication(
-      {required String clientId, required String authority}) async {
+      {required String clientId, required String authority, String? redirectUri}) async {
     var res =
-        AzureAdAuthentication._create(clientId: clientId, authority: authority);
+        AzureAdAuthentication._create(clientId: clientId, authority: authority,redirectUri: redirectUri);
     await res._initialize();
 
     return res;
@@ -134,6 +136,9 @@ class AzureAdAuthentication {
     var res = <String, dynamic>{'clientId': _clientId};
     if (_authority != null) {
       res["authority"] = _authority;
+    }
+    if(_redirectUri != null){
+      res["redirectUri"] = _redirectUri;
     }
 
     try {

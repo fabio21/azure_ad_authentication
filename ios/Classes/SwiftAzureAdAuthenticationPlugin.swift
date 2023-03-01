@@ -77,7 +77,8 @@ extension SwiftAzureAdAuthenticationPlugin {
         if let application = getApplication(result: result){
             
             
-            let viewController: UIViewController = UIApplication.shared.keyWindow!.rootViewController!
+           // let viewController: UIViewController = UIApplication.shared.keyWindow!.rootViewController!
+            let viewController: UIViewController = UIViewController.keyViewController!
             let webviewParameters = MSALWebviewParameters(authPresentationViewController: viewController)
             if #available(iOS 13.0, *) {
                 webviewParameters.prefersEphemeralWebBrowserSession = true
@@ -169,7 +170,7 @@ extension SwiftAzureAdAuthenticationPlugin {
     }
     
     fileprivate func signOut(_ application: MSALPublicClientApplication, _ account: MSALAccount, result: @escaping FlutterResult) {
-        let viewController: UIViewController = UIApplication.shared.keyWindow!.rootViewController!
+        let viewController: UIViewController = UIViewController.keyViewController!
         let webviewParameters = MSALWebviewParameters(authPresentationViewController: viewController)
         webviewParameters.webviewType = .default
         
@@ -310,4 +311,18 @@ extension SwiftAzureAdAuthenticationPlugin {
             return nil
         }
     }
+}
+
+//MARK: - UIViewController
+extension UIViewController {
+    
+    
+    static var keyViewController: UIViewController?{
+        if #available(iOS 15, *){
+            return (UIApplication.shared.connectedScenes.filter({$0.activationState == .foregroundActive}).compactMap({$0 as? UIWindowScene}).first?.windows.filter({$0.isKeyWindow}).first?.rootViewController)!
+        }else{
+            return UIApplication.shared.windows.first(where: {$0.isKeyWindow})?.rootViewController
+        }
+    }
+    
 }

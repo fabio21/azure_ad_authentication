@@ -14,7 +14,8 @@ public class AzureAdAuthenticationPlugin: NSObject, FlutterPlugin {
     //static fields as initialization isn't really required
     static var clientId : String = "";
     static var authority : String = "";
-    
+    static var redirectUri: String = ""
+    ;
     public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult)
     {
         //get the arguments as a dictionary
@@ -22,9 +23,10 @@ public class AzureAdAuthenticationPlugin: NSObject, FlutterPlugin {
         let scopes = dict["scopes"] as? [String] ?? [String]()
         let clientId = dict["clientId"] as? String ?? ""
         let authority = dict["authority"] as? String ?? ""
+        let redirectUri = dict["redirectUri"] as? String ?? ""
         
         switch( call.method ){
-        case "initialize": initialize(clientId: clientId, authority: authority, result: result)
+        case "initialize": initialize(clientId: clientId, authority: authority, redirectUri: redirectUri, result: result)
         case "acquireToken": acquireToken(scopes: scopes, result: result)
         case "acquireTokenSilent": acquireTokenSilent(scopes: scopes, result: result)
         case "logout": logout(result: result)
@@ -46,10 +48,10 @@ public class AzureAdAuthenticationPlugin: NSObject, FlutterPlugin {
                 //nothing to do really
             }
             
-    
+            
             let webViewParameters = MSALWebviewParameters()
-
-    
+            
+            
             
             let interactiveParameters = MSALInteractiveTokenParameters(scopes: scopes, webviewParameters: webViewParameters)
             application.acquireToken(with: interactiveParameters, completionBlock: { (msalresult, error) in
@@ -121,16 +123,21 @@ public class AzureAdAuthenticationPlugin: NSObject, FlutterPlugin {
         return nil
     }
     
-    private func initialize(clientId: String, authority: String, result: @escaping FlutterResult)
+    private func initialize(clientId: String, authority: String, redirectUri: String, result: @escaping FlutterResult)
     {
         //validate clientid exists
         if(clientId.isEmpty){
             result(FlutterError(code:"NO_CLIENTID", message: "Call must include a clientId", details: nil))
             return
         }
+        if(redirectUri.isEmpty){
+            result(FlutterError(code:"NO_REDIRECT_URI", message: "Call must include a credirectUri MacOs", details: nil))
+            return
+        }
         
         AzureAdAuthenticationPlugin.clientId = clientId;
         AzureAdAuthenticationPlugin.authority = authority;
+        AzureAdAuthenticationPlugin.redirectUri = redirectUri;
         result(true)
     }
     
@@ -169,6 +176,11 @@ extension AzureAdAuthenticationPlugin {
             return nil
         }
         
+        if(AzureAdAuthenticationPlugin.redirectUri.isEmpty){
+            result(FlutterError(code: "NO_REDIRECT_URI", message: "no redirect uri MACOS .", details: nil))
+            return nil
+        }
+        
         var config: MSALPublicClientApplicationConfig
         
         //setup the config, using authority if it is set, or defaulting to msal's own implementation if it's not
@@ -184,7 +196,7 @@ extension AzureAdAuthenticationPlugin {
                 
                 //create the msal authority and configuration
                 let msalAuthority = try MSALAuthority(url: authorityUrl)
-                config = MSALPublicClientApplicationConfig(clientId: AzureAdAuthenticationPlugin.clientId, redirectUri: nil, authority: msalAuthority)
+                config = MSALPublicClientApplicationConfig(clientId: AzureAdAuthenticationPlugin.clientId, redirectUri: AzureAdAuthenticationPlugin.redirectUri, authority: msalAuthority)
             } catch {
                 //return error if exception occurs
                 result(FlutterError(code: "INVALID_AUTHORITY", message: "invalid authority", details: nil))
@@ -193,7 +205,9 @@ extension AzureAdAuthenticationPlugin {
         }
         else
         {
-            config = MSALPublicClientApplicationConfig(clientId: AzureAdAuthenticationPlugin.clientId)
+            result(FlutterError(code: "INVALID_AUTHORITY", message: "empty authority", details: nil))
+            return nil
+            
         }
         
         //create the application and return it

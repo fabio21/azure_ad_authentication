@@ -4,6 +4,7 @@ import 'package:azure_ad_authentication/exeption.dart';
 import 'package:azure_ad_authentication/model/user_ad.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
+import 'dart:io';
 import 'package:flutter/services.dart';
 
 void main() => runApp(const MyApp());
@@ -18,7 +19,8 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   static const String _authority =
       "https://login.microsoftonline.com/organizations/oauth2/v2.0/authorize";
-  static const String _redirectUri = "msauth.msal2794d211-4e3f-4010-9f37-250f928d19c5://auth";
+  static const String _redirectUriMacos = "msauth.msal2794d211-4e3f-4010-9f37-250f928d19c5://auth";
+  //static const String _redirectUriIos = "msal2794d211-4e3f-4010-9f37-250f928d19c5";
 
   static const String _clientId = "2794d211-4e3f-4010-9f37-250f928d19c5";
 
@@ -71,6 +73,7 @@ class _MyAppState extends State<MyApp> {
   }
 
   Future<AzureAdAuthentication> intPca() async {
+    var _redirectUri = Platform.isIOS ? null : _redirectUriMacos;
     return await AzureAdAuthentication.createPublicClientApplication(
         clientId: _clientId, authority: _authority, redirectUri: _redirectUri,);
   }

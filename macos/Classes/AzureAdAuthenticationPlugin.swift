@@ -14,8 +14,8 @@ public class AzureAdAuthenticationPlugin: NSObject, FlutterPlugin {
     //static fields as initialization isn't really required
     static var clientId : String = "";
     static var authority : String = "";
-    static var redirectUri: String = ""
-    ;
+    static var redirectUri: String = "";
+
     public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult)
     {
         //get the arguments as a dictionary

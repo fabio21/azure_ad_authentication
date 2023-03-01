@@ -7,6 +7,8 @@ public class SwiftAzureAdAuthenticationPlugin: NSObject, FlutterPlugin {
     //static fields as initialization isn't really required
     static var clientId : String = ""
     static var authority : String = ""
+    static var redirectUri: String?;
+    
     static let kCurrentAccountIdentifier = "MSALCurrentAccountIdentifier"
     
     public static func register(with registrar: FlutterPluginRegistrar) {
@@ -24,9 +26,10 @@ public class SwiftAzureAdAuthenticationPlugin: NSObject, FlutterPlugin {
         let scopes = dict["scopes"] as? [String] ?? [String]()
         let clientId = dict["clientId"] as? String ?? ""
         let authority = dict["authority"] as? String ?? ""
+        let redirectUri = dict["redirectUri"] as? String ?? nil
         
         switch( call.method ){
-        case "initialize": initialize(clientId: clientId, authority: authority, result: result)
+        case "initialize": initialize(clientId: clientId, authority: authority, redirectUri: redirectUri, result: result)
         case "acquireToken": acquireToken(scopes: scopes, result: result)
         case "acquireTokenSilent": acquireTokenSilent(scopes: scopes, result: result)
         case "logout": logout(result: result)
@@ -54,7 +57,7 @@ public class SwiftAzureAdAuthenticationPlugin: NSObject, FlutterPlugin {
         return nil
     }
     
-    private func initialize(clientId: String, authority: String, result: @escaping FlutterResult)
+    private func initialize(clientId: String, authority: String,redirectUri: String?, result: @escaping FlutterResult)
     {
         //validate clientid exists
         if(clientId.isEmpty){
@@ -64,6 +67,7 @@ public class SwiftAzureAdAuthenticationPlugin: NSObject, FlutterPlugin {
         
         SwiftAzureAdAuthenticationPlugin.clientId = clientId;
         SwiftAzureAdAuthenticationPlugin.authority = authority;
+        SwiftAzureAdAuthenticationPlugin.redirectUri = redirectUri;
         result(true)
     }
     
@@ -289,7 +293,7 @@ extension SwiftAzureAdAuthenticationPlugin {
                 
                 //create the msal authority and configuration
                 let msalAuthority = try MSALAuthority(url: authorityUrl)
-                config = MSALPublicClientApplicationConfig(clientId: SwiftAzureAdAuthenticationPlugin.clientId, redirectUri: nil, authority: msalAuthority)
+                config = MSALPublicClientApplicationConfig(clientId: SwiftAzureAdAuthenticationPlugin.clientId, redirectUri: SwiftAzureAdAuthenticationPlugin.redirectUri, authority: msalAuthority)
             } catch {
                 //return error if exception occurs
                 result(FlutterError(code: "INVALID_AUTHORITY", message: "invalid authority", details: nil))

@@ -1,0 +1,31 @@
+PODS:
+  - azure_ad_authentication (0.0.1):
+    - Flutter
+    - MSAL (~> 1.2.9)
+  - Flutter (1.0.0)
+  - MSAL (1.2.9):
+    - MSAL/app-lib (= 1.2.9)
+  - MSAL/app-lib (1.2.9)
+
+DEPENDENCIES:
+  - azure_ad_authentication (from `.symlinks/plugins/azure_ad_authentication/ios`)
+  - Flutter (from `Flutter`)
+
+SPEC REPOS:
+  trunk:
+    - MSAL
+
+EXTERNAL SOURCES:
+  azure_ad_authentication:
+    :path: ".symlinks/plugins/azure_ad_authentication/ios"
+  Flutter:
+    :path: Flutter
+
+SPEC CHECKSUMS:
+  azure_ad_authentication: b9cbf47f0c619450cf19ad36373136ff41eab620
+  Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
+  MSAL: caaa44924d1bb98fb6a225a4f362f76c27e19474
+
+PODFILE CHECKSUM: fe5e039928e08cc3aa55730590fe5577354d32d2
+
+COCOAPODS: 1.11.3

@@ -8,7 +8,7 @@ This app comes pre-configured for testing. If you would like to register your ow
 To Register an app:
 
 
-Sign in to the [Azure portal](https://github.com/Azure-Samples/ms-identity-macOS-swift-objc#:~:text=in%20to%20the-,Azure%20portal,-using%20either%20a) using either a work or school account.
+Sign in to the [Azure portal](https://portal.azure.com/#home) using either a work or school account.
 In the left-hand navigation pane, select the Azure Active Directory blade, and then select App registrations.
 Click on the New registration button at the top left of the page.
 
@@ -249,8 +249,9 @@ keytool -exportcert -alias androiddebugkey -keystore %HOMEPATH%\.android\debug.k
 ```
 
 ## iOs Configs
-* Version msal 1.1.22
-- https://github.com/AzureAD/microsoft-authentication-library-for-objc
+* Version msal 1.2.9
+* minimum support 14 
+- [MSAL (Microsoft Authentication Library iOS)](https://github.com/AzureAD/microsoft-authentication-library-for-objc)
 
 
 
@@ -296,11 +297,25 @@ Note that "msauthv3" scheme is needed when compiling your app with Xcode 11 and 
 
 
 ## MacOs Configs
-* Version msal 1.1.22
-- https://github.com/Azure-Samples/ms-identity-macOS-swift-objc
+* Version msal 1.2.9
+- [MSAL (Microsoft Authentication Library MacOs)](https://github.com/Azure-Samples/ms-identity-macOS-swift-objc)
 
 - Step 1: Configure your application Info.plist
 > Add URI scheme in the Info.plist. Redirect URI scheme follows the format msauth.[app_bundle_id]. Make sure to substitute [app_bundle_id] with the Bundle Identifier for your application.
+
+```
+ String _authority = "https://login.microsoftonline.com/organizations/oauth2/v2.0/authorize";
+
+ String _redirectUri = "msauth.msal2794d211-4e3f-4010-9f37-250f928d19c5://auth";
+ 
+ String _clientId = "2794d211-4e3f-4010-9f37-250f928d19c5";
+ 
+ Future<AzureAdAuthentication> intPca() async {
+    return await AzureAdAuthentication.createPublicClientApplication(
+        clientId: _clientId, authority: _authority, redirectUri: _redirectUri,);
+  }
+```
+
 ```
 <key>CFBundleURLTypes</key>
 <array>

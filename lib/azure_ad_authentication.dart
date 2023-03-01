@@ -27,6 +27,7 @@ class AzureAdAuthentication {
   ///```
   /// param required String clientId
   /// param required String authority
+  /// param String? redirectUri (only for MacOs)
   /// return AzureAdAuthentication
   /// ```
   static Future<AzureAdAuthentication> createPublicClientApplication(
@@ -63,6 +64,7 @@ class AzureAdAuthentication {
     }
   }
 
+  ///return UserAdModel info
   Future<UserAdModel?> _getUserModel(UserAdModel userAdModel) async {
     if (userAdModel.accessToken != null) {
       UserAdModel? user = (await Request.post(token: userAdModel.accessToken!));

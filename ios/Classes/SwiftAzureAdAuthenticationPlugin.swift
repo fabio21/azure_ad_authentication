@@ -91,7 +91,7 @@ extension SwiftAzureAdAuthenticationPlugin {
             //removeAccount(application)
             
             let interactiveParameters = MSALInteractiveTokenParameters(scopes: scopes, webviewParameters: webviewParameters)
-            interactiveParameters.promptType = MSALPromptType.selectAccount
+            interactiveParameters.promptType = MSALPromptType.selectAccountqaqa
             
             application.acquireToken(with: interactiveParameters, completionBlock: { (msalresult, error) in
                 guard let authResult = msalresult, error == nil else {

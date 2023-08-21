@@ -206,7 +206,7 @@ extension SwiftAzureAdAuthenticationPlugin {
                 
                 clearCurrentAccount()
                 try application.remove(accountToDelete)
-                removeAccount(application)
+                //removeAccount(application)
             } catch {
                 result(FlutterError(code: "CONFIG_ERROR", message: "Unable get remove accounts", details: nil))
                 return

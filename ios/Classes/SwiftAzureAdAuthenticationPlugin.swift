@@ -88,7 +88,7 @@ extension SwiftAzureAdAuthenticationPlugin {
                 webviewParameters.prefersEphemeralWebBrowserSession = true
             }
             
-            removeAccount(application)
+            //removeAccount(application)
             
             let interactiveParameters = MSALInteractiveTokenParameters(scopes: scopes, webviewParameters: webviewParameters)
             interactiveParameters.promptType = MSALPromptType.selectAccount

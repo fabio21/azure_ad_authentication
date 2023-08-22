@@ -84,14 +84,14 @@ extension SwiftAzureAdAuthenticationPlugin {
            // let viewController: UIViewController = UIApplication.shared.keyWindow!.rootViewController!
             let viewController: UIViewController = UIViewController.keyViewController!
             let webviewParameters = MSALWebviewParameters(authPresentationViewController: viewController)
-            if #available(iOS 13.0, *) {
-                webviewParameters.prefersEphemeralWebBrowserSession = true
-            }
+//            if #available(iOS 13.0, *) {
+//                webviewParameters.prefersEphemeralWebBrowserSession = true
+//            }
             
             //removeAccount(application)
             
             let interactiveParameters = MSALInteractiveTokenParameters(scopes: scopes, webviewParameters: webviewParameters)
-            interactiveParameters.promptType = MSALPromptType.selectAccountqaqa
+            interactiveParameters.promptType = MSALPromptType.selectAccount
             
             application.acquireToken(with: interactiveParameters, completionBlock: { (msalresult, error) in
                 guard let authResult = msalresult, error == nil else {

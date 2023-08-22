@@ -1,0 +1,4 @@
+enum PromptType {
+  normal,
+  selectAccount,
+}

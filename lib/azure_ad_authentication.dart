@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:azure_ad_authentication/model/prompt_type.dart';
 import 'package:flutter/services.dart';
 
 import 'exeption.dart';
@@ -31,9 +32,11 @@ class AzureAdAuthentication {
   /// return AzureAdAuthentication
   /// ```
   static Future<AzureAdAuthentication> createPublicClientApplication(
-      {required String clientId, required String authority, String? redirectUri}) async {
-    var res =
-        AzureAdAuthentication._create(clientId: clientId, authority: authority,redirectUri: redirectUri);
+      {required String clientId,
+      required String authority,
+      String? redirectUri}) async {
+    var res = AzureAdAuthentication._create(
+        clientId: clientId, authority: authority, redirectUri: redirectUri);
     await res._initialize();
 
     return res;
@@ -41,8 +44,15 @@ class AzureAdAuthentication {
 
   /// Acquire a token interactively for the given [scopes]
   /// return [UserAdModel] contains user information but token and expiration date
-  Future<UserAdModel?> acquireToken({required List<String> scopes}) async {
-    var res = <String, dynamic>{'scopes': scopes};
+  Future<UserAdModel?> acquireToken(
+      {required List<String> scopes,
+      PromptType promptType = PromptType.normal,
+      bool useWebBrowserSession = true}) async {
+    var res = <String, dynamic>{
+      'scopes': scopes,
+      'promptType': promptType == PromptType.normal ? null : 'select_account',
+      'useWebBrowserSession': useWebBrowserSession.toString(),
+    };
     try {
       final String? json = await _channel.invokeMethod('acquireToken', res);
       UserAdModel userAdModel = UserAdModel.fromJson(jsonDecode(json!));
@@ -54,8 +64,15 @@ class AzureAdAuthentication {
 
   /// Acquire a token interactively for the given [scopes]
   /// return [String]  {accessToken": xxx,"expiresOn" : xxx}
-  Future<String> acquireTokenString({required List<String> scopes}) async {
-    var res = <String, dynamic>{'scopes': scopes};
+  Future<String> acquireTokenString(
+      {required List<String> scopes,
+      PromptType promptType = PromptType.normal,
+      bool useWebBrowserSession = true}) async {
+    var res = <String, dynamic>{
+      'scopes': scopes,
+      'promptType': promptType == PromptType.normal ? null : 'select_account',
+      'useWebBrowserSession': useWebBrowserSession.toString(),
+    };
     try {
       final String? json = await _channel.invokeMethod('acquireToken', res);
       return json ?? "Error";
@@ -139,7 +156,7 @@ class AzureAdAuthentication {
     if (_authority != null) {
       res["authority"] = _authority;
     }
-    if(_redirectUri != null){
+    if (_redirectUri != null) {
       res["redirectUri"] = _redirectUri;
     }
 

@@ -8,6 +8,8 @@ public class SwiftAzureAdAuthenticationPlugin: NSObject, FlutterPlugin {
     static var clientId : String = ""
     static var authority : String = ""
     static var redirectUri: String?;
+    static var promptType: String?;
+    static var useWebBrowserSession: Bool = true;
     
     static let kCurrentAccountIdentifier = "MSALCurrentAccountIdentifier"
     
@@ -27,6 +29,9 @@ public class SwiftAzureAdAuthenticationPlugin: NSObject, FlutterPlugin {
         let clientId = dict["clientId"] as? String ?? ""
         let authority = dict["authority"] as? String ?? ""
         let redirectUri = dict["redirectUri"] as? String ?? nil
+
+        promptType = dict["promptType"] as? String ?? nil
+        useWebBrowserSession = (dict["useWebBrowserSession"] as? String ?? "true").lowercased() == "true"
         
         switch( call.method ){
         case "initialize": initialize(clientId: clientId, authority: authority, redirectUri: redirectUri, result: result)
@@ -80,18 +85,23 @@ extension SwiftAzureAdAuthenticationPlugin {
     {
         if let application = getApplication(result: result){
             
-            
+            // disabled from original lib
            // let viewController: UIViewController = UIApplication.shared.keyWindow!.rootViewController!
             let viewController: UIViewController = UIViewController.keyViewController!
             let webviewParameters = MSALWebviewParameters(authPresentationViewController: viewController)
-//            if #available(iOS 13.0, *) {
-//                webviewParameters.prefersEphemeralWebBrowserSession = true
-//            }
+            if(!useWebBrowserSession) {
+                if #available(iOS 13.0, *) {
+                    webviewParameters.prefersEphemeralWebBrowserSession = true
+                }
+            }
             
+            // disable because need to save the session
             //removeAccount(application)
             
             let interactiveParameters = MSALInteractiveTokenParameters(scopes: scopes, webviewParameters: webviewParameters)
-            interactiveParameters.promptType = MSALPromptType.selectAccount
+            if let promptType = promptType, promptType == "select_account" {
+                interactiveParameters.promptType = MSALPromptType.selectAccount
+            }
             
             application.acquireToken(with: interactiveParameters, completionBlock: { (msalresult, error) in
                 guard let authResult = msalresult, error == nil else {

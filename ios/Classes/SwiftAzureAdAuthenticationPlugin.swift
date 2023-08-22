@@ -30,8 +30,8 @@ public class SwiftAzureAdAuthenticationPlugin: NSObject, FlutterPlugin {
         let authority = dict["authority"] as? String ?? ""
         let redirectUri = dict["redirectUri"] as? String ?? nil
 
-        promptType = dict["promptType"] as? String ?? nil
-        useWebBrowserSession = (dict["useWebBrowserSession"] as? String ?? "true").lowercased() == "true"
+        SwiftAzureAdAuthenticationPlugin.promptType = dict["promptType"] as? String ?? nil
+        SwiftAzureAdAuthenticationPlugin.useWebBrowserSession = (dict["useWebBrowserSession"] as? String ?? "true").lowercased() == "true"
         
         switch( call.method ){
         case "initialize": initialize(clientId: clientId, authority: authority, redirectUri: redirectUri, result: result)
@@ -89,7 +89,7 @@ extension SwiftAzureAdAuthenticationPlugin {
            // let viewController: UIViewController = UIApplication.shared.keyWindow!.rootViewController!
             let viewController: UIViewController = UIViewController.keyViewController!
             let webviewParameters = MSALWebviewParameters(authPresentationViewController: viewController)
-            if(!useWebBrowserSession) {
+            if(!SwiftAzureAdAuthenticationPlugin.useWebBrowserSession) {
                 if #available(iOS 13.0, *) {
                     webviewParameters.prefersEphemeralWebBrowserSession = true
                 }
@@ -99,7 +99,7 @@ extension SwiftAzureAdAuthenticationPlugin {
             //removeAccount(application)
             
             let interactiveParameters = MSALInteractiveTokenParameters(scopes: scopes, webviewParameters: webviewParameters)
-            if let promptType = promptType, promptType == "select_account" {
+            if let promptType = SwiftAzureAdAuthenticationPlugin.promptType, promptType == "select_account" {
                 interactiveParameters.promptType = MSALPromptType.selectAccount
             }
             

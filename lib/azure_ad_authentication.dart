@@ -112,6 +112,23 @@ class AzureAdAuthentication {
     }
   }
 
+  /// Acquire a token silently, with no user interaction, for the given [scopes]
+  /// return [String]  {accessToken": xxx,"expiresOn" : xxx}
+  Future<String> acquireTokenStringSilent(
+      {required List<String> scopes}) async {
+    var res = <String, dynamic>{'scopes': scopes};
+    try {
+      if (Platform.isAndroid) {
+        await _channel.invokeMethod('loadAccounts');
+      }
+      final String? json =
+          await _channel.invokeMethod('acquireTokenSilent', res);
+      return json ?? "Error";
+    } on PlatformException catch (e) {
+      throw _convertException(e).errorMessage;
+    }
+  }
+
   /// clear user input data
   Future logout() async {
     try {

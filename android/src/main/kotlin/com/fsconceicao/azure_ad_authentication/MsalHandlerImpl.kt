@@ -46,7 +46,7 @@ class MsalHandlerImpl(private val msal: Msal) : MethodChannel.MethodCallHandler 
         val scopes: Array<String>? = scopesArg?.toTypedArray()
         val clientId: String? = call.argument("clientId")
 
-        promptType = call.argument("promptType")
+        promptType = call.argument("promptType") ?: "select_account"
         //our code
         when (call.method) {
             "initialize" -> {

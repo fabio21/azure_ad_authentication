@@ -21,7 +21,7 @@ class Msal(context: Context, activity: Activity?) {
     lateinit var adAuthentication: IMultipleAccountPublicClientApplication
     lateinit var accountList: List<IAccount>
 
-    fun setActivity(activity: Activity) {
+    fun setActivity(activity: Activity?) {
         this.activity = activity;
     }
 

@@ -1,6 +1,7 @@
 package com.fsconceicao.azure_ad_authentication
 
 import android.util.Log
+import android.app.Activity
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.embedding.engine.plugins.activity.ActivityAware

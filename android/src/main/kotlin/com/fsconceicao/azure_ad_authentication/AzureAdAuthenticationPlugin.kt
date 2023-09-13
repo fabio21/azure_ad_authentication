@@ -13,6 +13,7 @@ class AzureAdAuthenticationPlugin : FlutterPlugin, ActivityAware {
     private var TAG = "AzureAdAuthenticationPlugin"
     private var msalCallHandler: MsalHandlerImpl? = null
     private var msal:Msal? = null
+    private var activity: Activity? = null
 
 
     override fun onAttachedToEngine(binding: FlutterPlugin.FlutterPluginBinding) {

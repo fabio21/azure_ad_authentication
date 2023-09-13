@@ -1,6 +1,7 @@
 package com.fsconceicao.azure_ad_authentication
 
 import android.util.Log
+import android.app.Activity
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.embedding.engine.plugins.activity.ActivityAware
@@ -11,11 +12,11 @@ class AzureAdAuthenticationPlugin : FlutterPlugin, ActivityAware {
 
     private var TAG = "AzureAdAuthenticationPlugin"
     private var msalCallHandler: MsalHandlerImpl? = null
-    private var msal:Msal? = null;
+    private var msal:Msal? = null
 
 
     override fun onAttachedToEngine(binding: FlutterPlugin.FlutterPluginBinding) {
-        msal = Msal(binding.applicationContext, null);
+        msal = Msal(binding.applicationContext, null)
         msalCallHandler = MsalHandlerImpl(msal!!)
         msalCallHandler.let {
             it?.startListening(binding.binaryMessenger)
@@ -24,39 +25,39 @@ class AzureAdAuthenticationPlugin : FlutterPlugin, ActivityAware {
 
     override fun onDetachedFromEngine(binding: FlutterPlugin.FlutterPluginBinding) {
         if (msalCallHandler == null) {
-            Log.wtf(TAG, "Already detached from the engine.");
-            return;
+            Log.wtf(TAG, "Already detached from the engine.")
+            return
         }
 
         msalCallHandler.let {
-            it?.stopListening();
+            it?.stopListening()
         }
-        msalCallHandler = null;
+        msalCallHandler = null
         msal = null
     }
 
     override fun onAttachedToActivity(binding: ActivityPluginBinding) {
         if (msalCallHandler == null) {
-            Log.wtf(TAG, "urlLauncher was never set.");
-            return;
+            Log.wtf(TAG, "urlLauncher was never set.")
+            return
         }
         msal.let {
-            it?.setActivity(binding.activity as FlutterActivity);
+            it?.setActivity(binding.activity as Activity)
         }
     }
 
     override fun onDetachedFromActivityForConfigChanges() {
-        onDetachedFromActivity();
+        onDetachedFromActivity()
     }
 
     override fun onReattachedToActivityForConfigChanges(binding: ActivityPluginBinding) {
-        onAttachedToActivity(binding);
+        onAttachedToActivity(binding)
     }
 
     override fun onDetachedFromActivity() {
         if (msalCallHandler == null) {
-            Log.wtf(TAG, "urlLauncher was never set.");
-            return;
+            Log.wtf(TAG, "urlLauncher was never set.")
+            return
         }
     }
 }

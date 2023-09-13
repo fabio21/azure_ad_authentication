@@ -179,7 +179,7 @@ class MsalHandlerImpl(private val msal: Msal) : MethodChannel.MethodCallHandler 
 
         msal.activity.let {
             val builder = AcquireTokenParameters.Builder()
-            builder.startAuthorizationFromActivity(it?.activity)
+            builder.startAuthorizationFromActivity(it)
                 .withScopes(scopes.toList())
                 .withPrompt(prompt)
                 .withCallback(msal.getAuthCallback(result))

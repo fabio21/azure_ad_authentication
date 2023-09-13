@@ -44,7 +44,7 @@ class AzureAdAuthenticationPlugin : FlutterPlugin, ActivityAware {
         }
         msal.let {
             this.activity = binding.activity as? Activity
-            // it?.setActivity(binding.activity as FlutterActivity)
+            it?.setActivity(binding.activity as Activity)
         }
     }
 

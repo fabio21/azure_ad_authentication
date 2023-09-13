@@ -18,8 +18,6 @@ class Msal(context: Context, activity: FlutterActivity?) {
     internal val applicationContext = context
     internal var activity: FlutterActivity? = activity
 
-    private var appActivity: Activity? = null
-
     lateinit var adAuthentication: IMultipleAccountPublicClientApplication
     lateinit var accountList: List<IAccount>
 

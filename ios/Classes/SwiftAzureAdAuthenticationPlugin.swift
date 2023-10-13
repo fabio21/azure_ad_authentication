@@ -320,6 +320,7 @@ extension SwiftAzureAdAuthenticationPlugin {
         if let application = try? MSALPublicClientApplication(configuration: config)
         {
             // application.validateAuthority = false
+            MSALGlobalConfig.brokerAvailability = .none;
             return application
         }else{
             result(FlutterError(code: "CONFIG_ERROR", message: "Unable to create MSALPublicClientApplication", details: nil))

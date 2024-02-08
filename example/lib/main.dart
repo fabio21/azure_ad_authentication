@@ -75,7 +75,7 @@ class _MyAppState extends State<MyApp> {
   Future<AzureAdAuthentication> intPca() async {
     var _redirectUri = Platform.isIOS ? null : _redirectUriMacos;
     return await AzureAdAuthentication.createPublicClientApplication(
-        clientId: _clientId, authority: _authority, redirectUri: _redirectUri,);
+        clientId: _clientId, authority: _authority, redirectUri: _redirectUri, privateSession: false, webViewType: WebViewType.safari);
   }
 
   Future _logout() async {

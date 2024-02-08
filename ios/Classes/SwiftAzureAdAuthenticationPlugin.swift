@@ -8,6 +8,8 @@ public class SwiftAzureAdAuthenticationPlugin: NSObject, FlutterPlugin {
     static var clientId : String = ""
     static var authority : String = ""
     static var redirectUri: String?;
+    static var privateSession: Bool = true;
+    static var webViewType: String?;
     
     static let kCurrentAccountIdentifier = "MSALCurrentAccountIdentifier"
     
@@ -27,9 +29,11 @@ public class SwiftAzureAdAuthenticationPlugin: NSObject, FlutterPlugin {
         let clientId = dict["clientId"] as? String ?? ""
         let authority = dict["authority"] as? String ?? ""
         let redirectUri = dict["redirectUri"] as? String ?? nil
+        let privateSession = dict["privateSession"] as? Bool ?? true
+        let webViewType = dict["webViewType"] as? String ?? "default"
         
         switch( call.method ){
-        case "initialize": initialize(clientId: clientId, authority: authority, redirectUri: redirectUri, result: result)
+        case "initialize": initialize(clientId: clientId, authority: authority, redirectUri: redirectUri,privateSession: privateSession,webViewType: webViewType ,result: result)
         case "acquireToken": acquireToken(scopes: scopes, result: result)
         case "acquireTokenSilent": acquireTokenSilent(scopes: scopes, result: result)
         case "logout": logout(result: result)
@@ -57,7 +61,7 @@ public class SwiftAzureAdAuthenticationPlugin: NSObject, FlutterPlugin {
         return nil
     }
     
-    private func initialize(clientId: String, authority: String,redirectUri: String?, result: @escaping FlutterResult)
+    private func initialize(clientId: String, authority: String,redirectUri: String?, privateSession: Bool, webViewType: String, result: @escaping FlutterResult)
     {
         //validate clientid exists
         if(clientId.isEmpty){
@@ -68,6 +72,8 @@ public class SwiftAzureAdAuthenticationPlugin: NSObject, FlutterPlugin {
         SwiftAzureAdAuthenticationPlugin.clientId = clientId;
         SwiftAzureAdAuthenticationPlugin.authority = authority;
         SwiftAzureAdAuthenticationPlugin.redirectUri = redirectUri;
+        SwiftAzureAdAuthenticationPlugin.privateSession = privateSession;
+        SwiftAzureAdAuthenticationPlugin.webViewType = webViewType;
         result(true)
     }
     
@@ -84,8 +90,19 @@ extension SwiftAzureAdAuthenticationPlugin {
            // let viewController: UIViewController = UIApplication.shared.keyWindow!.rootViewController!
             let viewController: UIViewController = UIViewController.keyViewController!
             let webviewParameters = MSALWebviewParameters(authPresentationViewController: viewController)
+        
             if #available(iOS 13.0, *) {
-                webviewParameters.prefersEphemeralWebBrowserSession = true
+                webviewParameters.prefersEphemeralWebBrowserSession = SwiftAzureAdAuthenticationPlugin.privateSession
+            }
+            switch (SwiftAzureAdAuthenticationPlugin.webViewType) {
+            case "safari":
+                webviewParameters.webviewType = MSALWebviewType.safariViewController
+            case "webView":
+                webviewParameters.webviewType = MSALWebviewType.wkWebView
+            case "authenticationSession":
+                webviewParameters.webviewType = MSALWebviewType.authenticationSession
+            default:
+                webviewParameters.webviewType = MSALWebviewType.default
             }
             
             removeAccount(application)

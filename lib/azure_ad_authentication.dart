@@ -8,19 +8,32 @@ import 'exeption.dart';
 import 'model/request.dart';
 import 'model/user_ad.dart';
 
+enum WebViewType {
+    safari,
+    webView,
+    authenticationSession,
+}
+
 class AzureAdAuthentication {
   static const MethodChannel _channel =
       MethodChannel('azure_ad_authentication');
   late String? _clientId, _authority, _redirectUri;
+  bool? _privateSession;
+  WebViewType? _webViewType;
 
   AzureAdAuthentication._create({
     required String clientId,
     required String authority,
     String? redirectUri,
+    bool privateSession = true,
+    WebViewType webViewType = WebViewType.webView,
+    
   }) {
     _clientId = clientId;
     _authority = authority;
     _redirectUri = redirectUri;
+    _privateSession = privateSession;
+    _webViewType = webViewType;
   }
 
   ///initialize client application
@@ -31,9 +44,9 @@ class AzureAdAuthentication {
   /// return AzureAdAuthentication
   /// ```
   static Future<AzureAdAuthentication> createPublicClientApplication(
-      {required String clientId, required String authority, String? redirectUri}) async {
+      {required String clientId, required String authority, String? redirectUri, bool privateSession = true, required WebViewType webViewType}) async {
     var res =
-        AzureAdAuthentication._create(clientId: clientId, authority: authority,redirectUri: redirectUri);
+        AzureAdAuthentication._create(clientId: clientId, authority: authority,redirectUri: redirectUri, privateSession: privateSession, webViewType: webViewType);
     await res._initialize();
 
     return res;
@@ -142,6 +155,8 @@ class AzureAdAuthentication {
     if(_redirectUri != null){
       res["redirectUri"] = _redirectUri;
     }
+    res['privateSession'] = _privateSession;
+    res['webViewType'] = _webViewType?.name;
 
     try {
       await _channel.invokeMethod('initialize', res);

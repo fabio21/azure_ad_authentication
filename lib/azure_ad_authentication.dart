@@ -26,7 +26,7 @@ class AzureAdAuthentication {
     required String authority,
     String? redirectUri,
     bool privateSession = true,
-    WebViewType webViewType = WebViewType.webView,
+    WebViewType? webViewType = WebViewType.webView,
     
   }) {
     _clientId = clientId;
@@ -44,7 +44,7 @@ class AzureAdAuthentication {
   /// return AzureAdAuthentication
   /// ```
   static Future<AzureAdAuthentication> createPublicClientApplication(
-      {required String clientId, required String authority, String? redirectUri, bool privateSession = true, required WebViewType webViewType}) async {
+      {required String clientId, required String authority, String? redirectUri, bool privateSession = true, WebViewType? webViewType}) async {
     var res =
         AzureAdAuthentication._create(clientId: clientId, authority: authority,redirectUri: redirectUri, privateSession: privateSession, webViewType: webViewType);
     await res._initialize();

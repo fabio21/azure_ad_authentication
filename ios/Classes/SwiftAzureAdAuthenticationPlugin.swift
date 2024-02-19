@@ -9,7 +9,7 @@ public class SwiftAzureAdAuthenticationPlugin: NSObject, FlutterPlugin {
     static var authority : String = ""
     static var redirectUri: String?;
     static var privateSession: Bool = true;
-    static var webViewType: String?;
+    static var webViewType: String = "";
     
     static let kCurrentAccountIdentifier = "MSALCurrentAccountIdentifier"
     

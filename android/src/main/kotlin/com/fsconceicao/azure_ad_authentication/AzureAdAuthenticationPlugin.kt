@@ -1,7 +1,6 @@
 package com.fsconceicao.azure_ad_authentication
 
 import android.util.Log
-import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.embedding.engine.plugins.activity.ActivityAware
 import io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding
@@ -41,7 +40,7 @@ class AzureAdAuthenticationPlugin : FlutterPlugin, ActivityAware {
             return;
         }
         msal.let {
-            it?.setActivity(binding.activity as FlutterActivity);
+            it?.setActivity(binding.activity);
         }
     }
 
